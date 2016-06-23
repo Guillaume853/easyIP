@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/contact" => "pages#join_us"
-  get "/roadshows" => "roadshows#index"
-  get "/roadshows/:id" => "roadshows#show"
 
+  resources :roadshows
 
 end
