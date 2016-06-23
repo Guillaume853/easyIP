@@ -1,0 +1,2 @@
+class Roadshow < ApplicationRecord
+end
