@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Roadshow.destroy_all
+
+Roadshow.create!(company: "AXA", url: "http://axa.com", message: "AXA has mandated BNP Paribas")
+Roadshow.create!(company: "Scor", url: "http://scor.com", message: "Scor has mandated JP Morgan")
+Roadshow.create!(company: "Humanis", url: "http://humanis.com", message: "Humanis has mandated Natixis")
+

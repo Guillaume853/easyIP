@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-3-offset">
+
+      <h1>
+        Investor Presentation Research
+      </h1>
+
+      <form action="/research" method="get">
+
+        <div class="form-group">
+          <label for="company">Name of the Company</label>
+          <input type="text" placeholder="Amazon" class="form-control" name="roadshow[company]" id="company">
+        </div>
+        <input type="submit" value="search" class="btn btn-primary">
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<h2>
+  Research Results :
+</h2>
+
+<ul>
+  <% @roadshows.each do |roadshow| %>
+    <li> <%= link_to roadshow.company, roadshow_path(roadshow) %> is roadshowing. Its URL is <%= roadshow.url %></li>
+  <% end %>
+</ul>

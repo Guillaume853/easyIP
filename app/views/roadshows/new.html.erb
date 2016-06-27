@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <h1 class="text-center">
+      Create a new investor presentation
+    </h1>
+
+
+    <%= simple_form_for @roadshow do |f| %>
+      <%= f.input :company, placeholder: "My Company", error: 'Company name is mandatory, please specify one' %>
+      <%= f.input :url, placeholder: "http://www.mycompany.com", label:"Company Website" %>
+      <%= f.button :submit, "Create", class: "btn btn-primary" %>
+     <% end %>
+
+
+
+
+<!--
+      <form action="/roadshows" method="post">
+
+      <div class="form-group">
+        <label for="company">Name of the Company</label>
+        <input type="text" name="company[name]" class="form-control" placeholder="My Company" id="company">
+      </div>
+      <div class="form-group">
+        <label for="url">Company Website</label>
+        <input type="text" name="company[url]" class="form-control" placeholder="http://www.mycompany.com" id="url">
+
+  <! on nomme les champs pour pouvoir les récupérer dans le hash params!>
+
+      </div>
+        <input type="submit" value="add" class="btn btn-primary">
+      </form>
+
+-->
+
+
+    </div>
+  </div>
+</div>
+
+
