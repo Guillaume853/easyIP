@@ -14,10 +14,10 @@
   Message : <%= @roadshow.message %>
 </p>
 
-<p>
-  <%= link_to "Back to the list", roadshows_path%>
-</p>
 
-<p>
-  <%= link_to "Launch a new research", research_path%>
+<p class="text-center">
+  <%= link_to "Back to the list", roadshows_path, class: "btn btn-primary" %>
+  <%= link_to "Launch a new research", research_path, class: "btn btn-success" %>
+  <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
+  <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
 </p>
