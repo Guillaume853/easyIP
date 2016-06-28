@@ -1,20 +1,10 @@
-<h1 class="text-center">
-  This is your investor presentation
-</h1>
-
-
-
-<p>
-  Message : <%= @roadshow.message %>
-</p>
+<div class="padded"></div>
 
 
 <p class="text-center">
   <%= link_to "Back to the list", roadshows_path, class: "btn btn-primary" %>
   <%= link_to "Launch a new research", research_path, class: "btn btn-success" %>
-  <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
-  <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
-</p>
+  </p>
 
 
 <div class="media">
@@ -30,12 +20,22 @@
     <div class="media-section">
       <h2><%= @roadshow.company%></h2>
       <p>
-        Message: <%@roadshow.message%>
+        Announcement message:
+      </p>
+      <p>
+        "<i><%= @roadshow.message %> </i>"
       </p>
     </div>
     <div class="media-section">
-      <h2>382 upvotes</h2>
-      ...
+      <p>
+        Start Date: <%= @roadshow.start_date %>
+      </p>
+      <p>
+        End Date: <%= @roadshow.end_date %>
+      </p>
     </div>
+    <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
+    <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
+
   </div>
 </div>

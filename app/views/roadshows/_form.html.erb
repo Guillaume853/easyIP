@@ -1,6 +1,10 @@
+
+
 <%= simple_form_for @roadshow do |f| %>
   <%= f.input :company, placeholder: "My Company", error: 'Company name is mandatory, please specify one' %>
   <%= f.input :url, placeholder: "http://www.mycompany.com", label:"Company Website" %>
-  <%= f.input :message, placeholder: "Put here the announcement", label: "Announcement Message" %>
+  <%= f.input :message, placeholder: "Put here the announcement message", label: "Announcement Message" %>
+  <%= f.input :start_date, label: "Start Date" %>
+  <%= f.input :end_date, label: "End Date" %>
   <%= f.button :submit, "Submit", class: "btn btn-primary" %>
 <% end %>
