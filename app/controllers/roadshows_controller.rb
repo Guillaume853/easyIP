@@ -46,16 +46,15 @@ class RoadshowsController < ApplicationController
   end
 
   def research
-    if params[:roadshow]
+   if params[:roadshow]
       @roadshows = Roadshow.select{|roadshow| roadshow.company.downcase == params[:roadshow][:company].downcase}
     else
       @roadshows =[]
-      #je ne suis pas sur qu'on ait besoin de ce if, car la selection doit suffir à renvoyer un tableau vide si rien ne matche
     end
   end
 
   def roadshow_params
-    params.require(:roadshow).permit(:company, :url)
+    params.require(:roadshow).permit(:company, :url, :message)
   end
 
   def find_roadshow

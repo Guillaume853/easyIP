@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <% @roadshows.each do |roadshow| %>
+
+        <div class="product">
+          <div class='product-upvote'>
+            <div class="product-arrow"></div>
+            <div class='product-count'>0</div>
+          </div>
+          <%= link_to roadshow_path(roadshow) do %>
+            <img src="http://unsplash.it/300/200" alt="kudoz" class="product-image hidden-xs">
+          <% end %>
+
+          <div class='product-body'>
+            <h3><%= link_to roadshow.company, roadshow_path(roadshow) %> </h3>
+            <p><%=roadshow.url%></p>
+          </div>
+          <ul class="list-inline product-controls hidden-sm hidden-xs">
+            <li><a href=""><i class="fa fa-heart"></i></a></li>
+            <li><a href=""><i class="fa fa-share"></i></a></li>
+            <li><a href=""><i class="fa fa-star"></i></a></li>
+          </ul>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

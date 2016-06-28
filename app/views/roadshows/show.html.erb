@@ -2,13 +2,7 @@
   This is your investor presentation
 </h1>
 
-<h2>
-  Name of the Company : <%= @roadshow.company%>
-</h2>
 
-<h3>
-  URL of the company : <%= @roadshow.url %>
-</h3>
 
 <p>
   Message : <%= @roadshow.message %>
@@ -21,3 +15,27 @@
   <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
   <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
 </p>
+
+
+<div class="media">
+  <div class="media-body">
+    <div class="media-section">
+      <img src="http://unsplash.it/400/300" alt="kudoz" class="product-image">
+    </div>
+    <div class="media-section">
+      <h4>Website of the company : <%= @roadshow.url %></h4>
+    </div>
+  </div>
+  <div class="media-aside">
+    <div class="media-section">
+      <h2><%= @roadshow.company%></h2>
+      <p>
+        Message: <%@roadshow.message%>
+      </p>
+    </div>
+    <div class="media-section">
+      <h2>382 upvotes</h2>
+      ...
+    </div>
+  </div>
+</div>

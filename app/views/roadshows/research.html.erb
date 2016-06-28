@@ -1,13 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-3-offset">
-
       <h1>
         Investor Presentation Research
       </h1>
-
       <form action="/research" method="get">
-
         <div class="form-group">
           <label for="company">Name of the Company</label>
           <input type="text" placeholder="Type for example : Amazon" class="form-control" name="roadshow[company]" id="company">
@@ -31,11 +28,7 @@
   </h2>
 <% end %>
 
-<ul>
-  <% @roadshows.each do |roadshow| %>
-    <li> <%= link_to roadshow.company, roadshow_path(roadshow) %> is roadshowing. Its URL is <%= roadshow.url %></li>
-  <% end %>
-</ul>
+<%= render "listing" %>
 
 <p>
   <%= link_to "Back to Home Page", root_path, class: "btn btn-primary" %>
