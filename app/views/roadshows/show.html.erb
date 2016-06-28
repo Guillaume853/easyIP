@@ -12,15 +12,14 @@
     <div class="media-section">
       <img src="http://unsplash.it/400/300" alt="kudoz" class="product-image">
     </div>
-    <div class="media-section">
-      <h4>Website of the company : <%= @roadshow.url %></h4>
-    </div>
+
   </div>
   <div class="media-aside">
     <div class="media-section">
-      <h2><%= @roadshow.company%></h2>
+      <h1><%= @roadshow.company%></h1>
+      <h6> <%= link_to "Company Website", @roadshow.url %></h6>
       <p>
-        Announcement message:
+        Roadshow Announcement message:
       </p>
       <p>
         "<i><%= @roadshow.message %> </i>"
