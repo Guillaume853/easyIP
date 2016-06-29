@@ -19,6 +19,7 @@ class RoadshowsController < ApplicationController
 
   def create
     @roadshow = Roadshow.new(roadshow_params)
+    @roadshow.user = current_user
     if @roadshow.save
       redirect_to confirmation_creation_path
     else
@@ -38,8 +39,12 @@ class RoadshowsController < ApplicationController
   end
 
   def destroy
-    @roadshow.destroy
-    redirect_to roadshows_path
+    if @roadshow.user == current_user
+      @roadshow.destroy
+      redirect_to roadshows_path
+    else
+      flash[:alert] = "You can't delete this product"
+    end
   end
 
   def confirmation_creation

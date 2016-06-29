@@ -18,12 +18,15 @@
     <div class="media-section">
       <h1><%= @roadshow.company%></h1>
       <h6> <%= link_to "Company Website", @roadshow.url %></h6>
-      <p>
-        Roadshow Announcement message:
-      </p>
-      <p>
-        "<i><%= @roadshow.message %> </i>"
-      </p>
+      <% if @roadshow.message %>
+        <p>
+          Roadshow Announcement message:
+        </p>
+        <p>
+          "<i><%= @roadshow.message %> </i>"
+        </p>
+      <% end %>
+
     </div>
     <div class="media-section">
       <p>
@@ -33,8 +36,10 @@
         End Date: <%= @roadshow.end_date %>
       </p>
     </div>
-    <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
-    <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
 
+    <% if @roadshow.user == current_user %>
+      <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
+      <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
+    <% end %>
   </div>
 </div>
