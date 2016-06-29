@@ -1,3 +1,4 @@
+<div class="padded"></div>
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
@@ -20,7 +21,7 @@
 
       <% if params[:roadshow] && (@roadshows != []) %>
         <h2>
-          Research Results :
+          Results :
         </h2>
       <% end %>
 
@@ -32,11 +33,6 @@
 
       <%= render "listing" %>
 
-      <p>
-        <%= link_to "Back to Home Page", root_path, class: "btn btn-primary" %>
-        <%= link_to "Upload a new Investor Presentation", new_roadshow_path, class: "btn btn-success" %>
-        <%= link_to "List of Roadshows", roadshows_path, class: "btn btn-success" %>
-      </p>
     </div>
   </div>
 </div>

@@ -1,11 +1,11 @@
 
 
 
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-wagon-fixed">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
-    <%= image_tag "icon.png"%>
-  </a>
+  <div class="logo-navbar">
+    <%= link_to "EasyIP", root_path %>
+  </div>
 
 
   <% if user_signed_in? %>
@@ -36,7 +36,7 @@
       </div>
 
       <!-- Button (call-to-action) -->
-      <%= link_to "Add a roadshow", new_roadshow_path, class: "navbar-wagon-item navbar-wagon-button btn"%>
+      <%= link_to "Upload a roadshow", new_roadshow_path, class: "navbar-wagon-item navbar-wagon-button btn"%>
     </div>
 
     <!-- Dropdown appearing on mobile only -->
