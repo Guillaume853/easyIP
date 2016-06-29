@@ -10,9 +10,19 @@
 <div class="media">
   <div class="media-body">
     <div class="media-section">
-      <img src="http://unsplash.it/400/300" alt="kudoz" class="product-image">
+      <% if @roadshow.presentation? %>
+        <%= cl_image_tag(@roadshow.presentation.path, width: 200, :page => @page) %>
+      <% else %>
+        <img src="http://unsplash.it/400/300" alt="kudoz" class="product-image">
+      <% end %>
+      <div class="text-center">
+        <p> page </p>
+        <form method="get">
+          <input type="text" class="form-control" name="page" id="page">
+        </form>
+        <p> / <%= @pages_number %> </p>
+      </div>
     </div>
-
   </div>
   <div class="media-aside">
     <div class="media-section">
@@ -44,7 +54,4 @@
   </div>
 </div>
 
-  <% if @roadshow.presentation? %>
-    il y a bien une présentation
-    <%= cl_image_tag @roadshow.presentation.path, width: 200 %>
-  <% end %>
+

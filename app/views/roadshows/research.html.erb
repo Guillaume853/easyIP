@@ -1,39 +1,45 @@
-<div class="padded"></div>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-3-offset">
-      <h1>
-        Investor Presentation Research
-      </h1>
-      <form action="/research" method="get">
-        <div class="form-group">
-          <label for="company">Name of the Company</label>
-          <input type="text" placeholder="Type for example : Amazon" class="form-control" name="roadshow[company]" id="company">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-3-offset">
+            <h1>
+              Investor Presentation Research
+            </h1>
+            <form action="/research" method="get">
+              <div class="form-group">
+                <label for="company">Name of the Company</label>
+                <input type="text" placeholder="Type for example : Amazon" class="form-control" name="roadshow[company]" id="company">
+              </div>
+              <input type="submit" value="search" class="btn btn-primary">
+            </form>
+          </div>
         </div>
-        <input type="submit" value="search" class="btn btn-primary">
-      </form>
+      </div>
 
+      <% if params[:roadshow] && (@roadshows != []) %>
+        <h2>
+          Research Results :
+        </h2>
+      <% end %>
+
+      <% if params[:roadshow] && (@roadshows == []) %>
+        <h2>
+        Sorry! No result matches your research
+        </h2>
+      <% end %>
+
+      <%= render "listing" %>
+
+      <p>
+        <%= link_to "Back to Home Page", root_path, class: "btn btn-primary" %>
+        <%= link_to "Upload a new Investor Presentation", new_roadshow_path, class: "btn btn-success" %>
+        <%= link_to "List of Roadshows", roadshows_path, class: "btn btn-success" %>
+      </p>
     </div>
   </div>
 </div>
 
-<% if params[:roadshow] && (@roadshows != []) %>
-  <h2>
-    Research Results :
-  </h2>
-<% end %>
 
-<% if params[:roadshow] && (@roadshows == []) %>
-  <h2>
-  Sorry! No result matches your research
-  </h2>
-<% end %>
-
-<%= render "listing" %>
-
-<p>
-  <%= link_to "Back to Home Page", root_path, class: "btn btn-primary" %>
-  <%= link_to "Upload a new Investor Presentation", new_roadshow_path, class: "btn btn-success" %>
-  <%= link_to "List of Roadshows", roadshows_path, class: "btn btn-success" %>
-</p>
 

@@ -11,6 +11,19 @@ class RoadshowsController < ApplicationController
   end
 
   def show
+    if params[:page]
+      @page = params[:page].to_i
+    else
+      @page = 1
+    end
+
+    if @roadshow.presentation
+ #     @pages_number = @roadshow.presentation[:pages]
+      @pages_number = 999
+    else
+      @pages_number = 1
+    end
+
   end
 
   def new
