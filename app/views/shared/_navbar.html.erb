@@ -28,6 +28,7 @@
             <li><a href="#">Profile</a></li>
             <li><a href="#">My IP</a></li>
             <li>
+              <%= link_to "Edit my Profile", edit_user_registration_path %>
               <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
             </li>
           </ul>

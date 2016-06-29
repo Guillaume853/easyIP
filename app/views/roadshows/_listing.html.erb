@@ -9,8 +9,13 @@
             <div class='product-count'>0</div>
           </div>
           <%= link_to roadshow_path(roadshow) do %>
-            <img src="http://unsplash.it/300/200" alt="kudoz" class="product-image hidden-xs">
-          <% end %>
+            <% if roadshow.presentation? %>
+              <%= cl_image_tag(roadshow.presentation.path, height: 117, width: 175, crop: :fill , class: 'product-image hidden-xs') %>
+            <% else %>
+              <img src="http://unsplash.it/300/200" alt="kudoz" class="product-image hidden-xs">
+            <% end %>
+
+             <% end %>
 
           <div class='product-body'>
             <h3><%= link_to roadshow.company, roadshow_path(roadshow) %> </h3>

@@ -43,3 +43,8 @@
     <% end %>
   </div>
 </div>
+
+  <% if @roadshow.presentation? %>
+    il y a bien une présentation
+    <%= cl_image_tag @roadshow.presentation.path, width: 200 %>
+  <% end %>
