@@ -2,7 +2,6 @@
 
 
 <p class="text-center">
-  <%= link_to "Back to the list", roadshows_path, class: "btn btn-primary" %>
   <%= link_to "Launch a new research", research_path, class: "btn btn-success" %>
   </p>
 
@@ -50,6 +49,7 @@
     <% if @roadshow.user == current_user %>
       <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
       <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
+      <%= link_to "View accesses", accesss_index_path(roadshow_id: @roadshow.id), class: "btn btn-success" %>
     <% end %>
   </div>
 </div>

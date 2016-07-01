@@ -55,7 +55,7 @@ class RoadshowsController < ApplicationController
   def destroy
     if @roadshow.user == current_user
       @roadshow.destroy
-      redirect_to roadshows_path
+      redirect_to research_path
     else
       flash[:alert] = "You can't delete this product"
     end

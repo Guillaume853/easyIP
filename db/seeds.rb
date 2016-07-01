@@ -10,7 +10,9 @@ Roadshow.destroy_all
 User.destroy_all
 
 boris = User.create!(email: 'boris@brexit.org', password: 'testtest')
+
 Roadshow.create!(company: "AXA", url: "http://axa.com", message: "AXA has mandated BNP Paribas")
 Roadshow.create!(company: "Scor", url: "http://scor.com", message: "Scor has mandated JP Morgan")
 Roadshow.create!(company: "Humanis", url: "http://humanis.com", message: "Humanis has mandated Natixis")
+
 

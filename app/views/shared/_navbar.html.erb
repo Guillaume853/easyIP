@@ -13,19 +13,15 @@
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-
+      <p class="text-center">Welcome <%= current_user.email %> !</p>
       <!-- Text link -->
       <a href="" class="navbar-wagon-item navbar-wagon-link">Contact</a>
-
-      <!-- Text link -->
-      <a href="" class="navbar-wagon-item navbar-wagon-link">Team</a>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <p class="dropdown-toggle navbar-wagon-link" id="navbar-wagon-menu" data-toggle="dropdown">Profile </p>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li><a href="#">Profile</a></li>
             <li><a href="#">My IP</a></li>
             <li>
               <%= link_to "Edit my Profile", edit_user_registration_path %>

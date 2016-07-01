@@ -1,5 +1,6 @@
 class Roadshow < ApplicationRecord
   has_attachment :presentation
+  has_many :accesss
 
 
   belongs_to :user

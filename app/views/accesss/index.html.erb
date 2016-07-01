@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="padded">
+      </div>
+      <%= link_to "Back to IP visualisation", roadshow_path(@roadshow), class: "btn btn-success" %>
+      <% @list.each do |access| %>
+      <p><%=access.user.email%></p>
+      <% end %>
+    </div>
+  </div>
+</div>

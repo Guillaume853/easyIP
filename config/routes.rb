@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   resources :roadshows
 
   get "/research" => "roadshows#research"
-
   get "/confirmation_creation" => "roadshows#confirmation_creation"
 
+
+ #routes for access track :
+
+ resources :accesss, only: [:create, :index]
 
 end
