@@ -1,23 +1,21 @@
 <div class="padded"></div>
 
 
-<p class="text-center">
-  <%= link_to "Launch a new research", research_path, class: "btn btn-success" %>
-  </p>
-
-
 <div class="media">
   <div class="media-body">
     <div class="media-section">
       <% if @roadshow.presentation? %>
-        <%= cl_image_tag(@roadshow.presentation.path, width: 200, :page => @page) %>
+        <%= cl_image_tag(@roadshow.presentation.path, width: 200, :page => @page, :transformation=>[
+          {:overlay=>"text:arial_55_bold:Sample", :angle=>40, :opacity=>50},
+          {:overlay=>"cloudinary_icon", :width=>50, :gravity=>"south", :y=>20}
+        ]) %>
       <% else %>
         <img src="http://unsplash.it/400/300" alt="kudoz" class="product-image">
       <% end %>
-      <div class="text-center">
-        <p> page </p>
+      <div class="text-center page-choser">
+        <p> Page </p>
         <form method="get">
-          <input type="text" class="form-control" name="page" id="page">
+          <input type="text" class="form-control form-page" name="page" id="page">
         </form>
         <p> / <%= @pages_number %> </p>
       </div>

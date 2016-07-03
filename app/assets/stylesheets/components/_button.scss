@@ -1,6 +1,6 @@
 .btn-medium {
-  color: green;
-  border: 1px solid green;
+  color: $green;
+  border: 1px solid $green;
   padding: 10px 15px;
   border-radius: 50px;
   font-weight: lighter;
@@ -25,3 +25,22 @@
   text-decoration: none;
   color: white;
 }
+.home-button {
+  margin-left: 10px;
+  padding: 12px 35px;
+  border-radius: 20em;
+  line-height: 40px;
+  background-color: $green;
+  color: white;
+  font-size: 20px;
+  border: 2px solid $green-dark;
+  position: relative;
+  top: 15px;
+}
+.home-button:hover {
+  color: white;
+  background: $green-dark;
+  border-color:$green-dark;
+  text-decoration: none;
+}
+

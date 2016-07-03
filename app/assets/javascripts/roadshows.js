@@ -7,6 +7,12 @@ $(document).ready(function(){
   $(".navbar-wagon").on("mouseleave", function(){
     $(this).addClass("navbar-transparent")
   });
+  $(window).on("scroll", function(){
+    if($(this).scrollTop() > 2 ){
+      $(".navbar-wagon").addClass("navbar-black");
+    }
+  });
+
 });
 
 

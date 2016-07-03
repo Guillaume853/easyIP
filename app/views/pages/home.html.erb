@@ -5,9 +5,9 @@
     <h1>EasyIP</h1>
     <p>The easiest access to Investor Presentations</p>
     <% if user_signed_in? %>
-      <%= link_to "Look for an Investor Presentation", research_path, class: "btn btn-success btn-lg" %>
+      <%= link_to "Search an IP", research_path, class: "home-button" %>
     <% else %>
-      <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-success btn-lg" %>
+      <%= link_to "Sign-up", new_user_registration_path, class: "home-button" %>
     <% end %>
   </div>
 </div>

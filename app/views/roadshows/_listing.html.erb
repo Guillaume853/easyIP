@@ -10,7 +10,7 @@
           </div>
           <%= link_to roadshow_path(roadshow) do %>
             <% if roadshow.presentation? %>
-              <%= cl_image_tag(roadshow.presentation.path, height: 117, width: 175, crop: :fill , class: 'product-image hidden-xs') %>
+              <%= cl_image_tag(roadshow.presentation.path, :format => :png, height: 117, width: 175, crop: :fill , class: 'product-image hidden-xs') %>
             <% else %>
               <img src="http://unsplash.it/300/200" alt="kudoz" class="product-image hidden-xs">
             <% end %>
