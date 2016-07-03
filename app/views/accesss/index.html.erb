@@ -1,12 +1,29 @@
+<div class="padded">
+<div>
+
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <div class="padded">
-      </div>
-      <%= link_to "Back to IP visualisation", roadshow_path(@roadshow), class: "btn btn-success" %>
-      <% @list.each do |access| %>
-      <p><%=access.user.email%></p>
+
+    <div class="col-sm-8 col-sm-offset-4">
+      <%= link_to roadshow_path(@roadshow), class: "btn btn-success"  do%>
+        <p>
+          Back to <%=@roadshow.company%> IP
+        </p>
       <% end %>
     </div>
+
+    <% @list.each do |access| %>
+      <div class="col-sm-2 col-sm-offset-2">
+        <p><%=access.user.email%></p>
+      </div>
+      <div class="col-sm-2">
+        <p><%= access.start_access %></p>
+      </div>
+      <div class="col-sm-2">
+        <p><%= access.end_access %></p>
+      </div>
+
+    <% end %>
+
   </div>
 </div>

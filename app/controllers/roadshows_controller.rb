@@ -1,6 +1,6 @@
 class RoadshowsController < ApplicationController
 
-  before_action :find_roadshow, only: [:show, :edit, :update, :destroy]
+  before_action :find_roadshow, only: [:show, :edit, :update, :destroy, :confirmation_creation]
 
   def index
     if params[:company]
@@ -34,7 +34,7 @@ class RoadshowsController < ApplicationController
     @roadshow = Roadshow.new(roadshow_params)
     @roadshow.user = current_user
     if @roadshow.save
-      redirect_to confirmation_creation_path
+      redirect_to confirmation_creation_path(id: @roadshow.id)
     else
       render :new
     end
@@ -46,7 +46,7 @@ class RoadshowsController < ApplicationController
   def update
     if (@roadshow.user == current_user) && @roadshow.update(roadshow_params)
         #attention le update ci-dessus est le update de active record, pas la méthode update du controleur
-      redirect_to confirmation_creation_path
+      redirect_to confirmation_creation_path(id: @roadshow.id)
     else
       render :edit
     end

@@ -3,12 +3,10 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <h1 class="text-center">
-        Your Presentation has been successfully uploaded !
+        Your presentation for <%= @roadshow.company %> has been successfully uploaded !
       </h1>
-
       <p class="text-center">
-        <%= link_to "Presentation Research", research_path, class: "btn btn-primary" %>
-        <%= link_to "Upload a new Investor Presentation", new_roadshow_path, class: "btn btn-success" %>
+        <%= link_to "View Presentation", roadshow_path(@roadshow), class: "btn btn-success" %>
       </p>
     </div>
   </div>

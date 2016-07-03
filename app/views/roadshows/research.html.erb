@@ -1,27 +1,12 @@
 <div class="padded"></div>
+
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-sm-3-offset">
-            <h1>
-              Investor Presentation Research
-            </h1>
-            <form action="/research" method="get">
-              <div class="form-group">
-                <label for="company">Name of the Company</label>
-                <input type="text" placeholder="Type for example : Amazon" class="form-control" name="roadshow[company]" id="company">
-              </div>
-              <input type="submit" value="search" class="btn btn-primary">
-            </form>
-          </div>
-        </div>
-      </div>
+    <div class="col-sm-12">
 
       <% if params[:roadshow] && (@roadshows != []) %>
         <h2>
-          Results :
+          Results of your research:
         </h2>
       <% end %>
 
