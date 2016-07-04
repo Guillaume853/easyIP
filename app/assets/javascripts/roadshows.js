@@ -8,7 +8,7 @@ $(document).ready(function(){
     $(this).addClass("navbar-transparent")
   });
   $(window).on("scroll", function(){
-    if($(this).scrollTop() > 2 ){
+    if($(this).scrollTop() > 0 ){
       $(".navbar-wagon").addClass("navbar-black");
     }
   });

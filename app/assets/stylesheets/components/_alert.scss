@@ -3,11 +3,11 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
+  margin: 0px;
   text-align: center;
   color: white;
   position: relative;
-  top: 70px;
+  bottom: 100px;
 }
 .alert-info {
   background: $green;
@@ -17,4 +17,7 @@
 }
 .alert-danger {
   background: $orange;
+}
+.placeholder-alert{
+  padding: 40px;
 }
