@@ -8,9 +8,9 @@
             <div class="product-arrow"></div>
             <div class='product-count'>0</div>
           </div>
-          <%= link_to roadshow_path(roadshow) do %>
+          <%= link_to accesss_index_path(roadshow_id: roadshow.id), method: :post do %>
             <% if roadshow.presentation? %>
-              <%= cl_image_tag(roadshow.presentation.path, :format => :png, height: 117, width: 175, crop: :fill , class: 'product-image hidden-xs') %>
+              <%= cl_image_tag(roadshow.presentation.path, height: 117, width: 175, crop: :fill , class: 'product-image hidden-xs') %>
             <% else %>
               <img src="http://unsplash.it/300/200" alt="kudoz" class="product-image hidden-xs">
             <% end %>

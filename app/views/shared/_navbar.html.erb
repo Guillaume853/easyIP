@@ -9,7 +9,7 @@
     <!-- Logo -->
     <div class="navbar-wagon-logo">
       <%= link_to root_path, {class:"btn navbar-wagon-button", id:"navbar-wagon-logo"} do %>
-        <i class="fa fa-home" aria-hidden="true"></i>
+        <i class="fa fa-picture-o" aria-hidden="true"></i>
       <% end %>
     </div>
 
@@ -69,7 +69,7 @@
     </div>
 
   <% else %>
-    <%= link_to "Login", new_user_session_path, class: "btn navbar-wagon-button", id: "navbar-login" %>
+    <%= link_to "Login", new_user_session_path, class: "btn navbar-wagon-button", id: "navbar-login-button" %>
   <% end %>
 </div>
 

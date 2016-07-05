@@ -19,6 +19,11 @@
     </div>
   </div>
   <div class="media-aside">
+    <div class="close-button">
+      <%= link_to research_path do%>
+        X
+      <% end %>
+    </div>
     <div class="media-section">
       <h1><%= @roadshow.company%></h1>
       <h6> <%= link_to "Company Website", @roadshow.url %></h6>

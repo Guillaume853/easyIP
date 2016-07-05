@@ -4,26 +4,26 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-sm-12">
-      <%= link_to roadshow_path(@roadshow), class: "btn-btn-success"  do%>
-        <p>
+    <div class="col-sm-4 col-sm-offset4">
+      <%= link_to roadshow_path(@roadshow), {class: "btn btn-success"}  do%>
           Back to <%=@roadshow.company%> IP
-        </p>
       <% end %>
     </div>
 
-    <% @list.each do |access| %>
-      <div class="col-sm-2 col-sm-offset-2">
-        <p><%=access.user.email%></p>
-      </div>
-      <div class="col-sm-2">
-        <p><%= access.start_access %></p>
-      </div>
-      <div class="col-sm-2">
-        <p><%= access.end_access %></p>
-      </div>
+    <h2>
+      List of access to <%= @roadshow.company %> IP
+    </h2>
 
-    <% end %>
+    <table style="width:100%">
+      <% @list.each do |access| %>
+        <tr>
+          <td><%= access.user.email %></td>
+          <td> <%= access.start_access %> </td>
+        </tr>
+      <% end %>
+    </table>
 
   </div>
 </div>
+
+
