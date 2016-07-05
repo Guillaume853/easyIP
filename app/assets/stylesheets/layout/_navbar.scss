@@ -25,18 +25,14 @@
 }
 
 /* Navbar logo - GA: ajout en cas de logo provisoire fontawesome */
-.navbar-wagon-logo {
+#navbar-wagon-logo {
   flex: 0 1 auto;
-  padding: 0 20px;
-  font-size: 35px;
-  a{
-    color: $green;
-  };
-  a:hover{
-    color: $green-dark;
-    text-decoration: none;
-  };
+  font-size: 30px;
 }
+
+#navbar-login {
+}
+
 
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {

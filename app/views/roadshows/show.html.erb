@@ -5,10 +5,7 @@
   <div class="media-body">
     <div class="media-section">
       <% if @roadshow.presentation? %>
-        <%= cl_image_tag(@roadshow.presentation.path, width: 200, :page => @page, :transformation=>[
-          {:overlay=>"text:arial_55_bold:Sample", :angle=>40, :opacity=>50},
-          {:overlay=>"cloudinary_icon", :width=>50, :gravity=>"south", :y=>20}
-        ]) %>
+        <%= cl_image_tag(@roadshow.presentation.path, width: 200) %>
       <% else %>
         <img src="http://unsplash.it/400/300" alt="kudoz" class="product-image">
       <% end %>
