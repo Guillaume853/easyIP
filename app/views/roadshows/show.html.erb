@@ -1,57 +1,61 @@
-<div class="padded"></div>
 
 
-<div class="media">
-  <div class="media-body">
-    <div class="media-section">
-      <% if @roadshow.presentation? %>
-        <%= cl_image_tag(@roadshow.presentation.path, width: 200, :page =>@page, :crop =>"fill") %>
-      <% else %>
-        <img src="http://unsplash.it/400/300" alt="kudoz" class="product-image">
-      <% end %>
-      <div class="page-choser">
-        <p> Page :</p>
+<div class="container">
+  <div class="padded">
+  </div>
+  <div class="media">
+    <div class="media-body">
+      <div class="media-section">
+        <% if @roadshow.presentation? %>
+          <%= cl_image_tag(@roadshow.presentation.path, width: 200, :page =>@page, :fetch_format=>:auto, :quality=> 100, :crop =>"fill") %>
+        <% else %>
+          <img src="http://unsplash.it/400/300" alt="kudoz" class="product-image">
+        <% end %>
+      </div>
+      <div class="media-section page-choser">
+        <%= link_to roadshow_path(id: @roadshow.id, page: @page-1), {class: "arrow"} do%>
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <% end %>
         <form method="get">
-          <input type="text" class="form-control form-page" name="page" id="page_number">
+          <input type="text" class="form-control form-page" name="page" id="page_number" display="inline">
         </form>
         <p> / <%= @pages_number %> </p>
+        <%= link_to roadshow_path(id: @roadshow.id, page: @page+1), {class: "arrow"}  do%>
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <% end %>
       </div>
     </div>
-  </div>
-  <div class="media-aside">
-    <div class="close-button">
-      <%= link_to research_path do%>
-        X
-      <% end %>
-    </div>
-    <div class="media-section">
-      <h1><%= @roadshow.company%></h1>
-      <h6> <%= link_to "Company Website", @roadshow.url %></h6>
-      <% if @roadshow.message %>
+    <div class="media-aside">
+      <div class="close-button">
+        <%= link_to research_path do%>
+          X
+        <% end %>
+      </div>
+      <div class="media-section">
+        <h1><%= @roadshow.company%></h1>
+        <h6> <%= link_to "Company Website", @roadshow.url %></h6>
+        <% if @roadshow.message %>
+          <p>
+            Roadshow Announcement message:
+          </p>
+          <p>
+            "<i><%= @roadshow.message %> </i>"
+          </p>
+        <% end %>
+      </div>
+      <div class="media-section">
         <p>
-          Roadshow Announcement message:
+          Start Date: <%= @roadshow.start_date %>
         </p>
         <p>
-          "<i><%= @roadshow.message %> </i>"
+          End Date: <%= @roadshow.end_date %>
         </p>
+      </div>
+      <% if @roadshow.user == current_user %>
+        <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
+        <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
+        <%= link_to "View accesses", accesss_index_path(roadshow_id: @roadshow.id), class: "btn btn-success" %>
       <% end %>
-
     </div>
-    <div class="media-section">
-      <p>
-        Start Date: <%= @roadshow.start_date %>
-      </p>
-      <p>
-        End Date: <%= @roadshow.end_date %>
-      </p>
-    </div>
-
-    <% if @roadshow.user == current_user %>
-      <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
-      <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
-      <%= link_to "View accesses", accesss_index_path(roadshow_id: @roadshow.id), class: "btn btn-success" %>
-    <% end %>
   </div>
 </div>
-
-
