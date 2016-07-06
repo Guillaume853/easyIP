@@ -45,13 +45,11 @@
 }
 .close-button{
   position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 0px 4px ;
-  border: 2px solid $gray-light;
+  top: 15px;
+  right: 15px;
   a{
     color: $gray-light;
-    font-size: 20px;
+    font-size: 14px;
   }
   a:hover{
     text-decoration:none

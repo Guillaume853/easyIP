@@ -8,11 +8,10 @@ $(document).ready(function(){
     $(this).addClass("navbar-transparent")
   });
   $(window).on("scroll", function(){
-    if($(this).scrollTop() > 0 ){
-      $(".navbar-wagon").addClass("navbar-black");
-    }
+    if ( $(this).scrollTop() > 20){
+      $(".navbar-wagon").removeClass("navbar-transparent");
+      }
   });
-
 });
 
 
