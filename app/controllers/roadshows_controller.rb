@@ -11,7 +11,7 @@ class RoadshowsController < ApplicationController
   end
 
   def show
-    if params[:page]
+    if (params[:page] && params[:page].to_i >0)
       @page = params[:page].to_i
     else
       @page = 1

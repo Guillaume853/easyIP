@@ -7,22 +7,28 @@
     <div class="media-body">
       <div class="media-section">
         <% if @roadshow.presentation? %>
-          <%= cl_image_tag(@roadshow.presentation.path, width: 200, :page =>@page, :fetch_format=>:auto, :quality=> 100, :crop =>"fill") %>
+          <%= cl_image_tag(@roadshow.presentation.path, width: 200, :page =>@page, :fetch_format=>:auto, :quality=> "auto", :crop =>"fill") %>
         <% else %>
           <img src="http://unsplash.it/400/300" alt="kudoz" class="product-image">
         <% end %>
       </div>
+
       <div class="media-section page-choser">
+
         <%= link_to roadshow_path(id: @roadshow.id, page: @page-1), {class: "arrow"} do%>
           <i class="fa fa-arrow-left" aria-hidden="true"></i>
         <% end %>
+
         <form method="get">
           <input type="text" class="form-control form-page" name="page" id="page_number" display="inline">
         </form>
+
         <p> / <%= @pages_number %> </p>
+
         <%= link_to roadshow_path(id: @roadshow.id, page: @page+1), {class: "arrow"}  do%>
           <i class="fa fa-arrow-right" aria-hidden="true"></i>
         <% end %>
+
       </div>
     </div>
     <div class="media-aside">
