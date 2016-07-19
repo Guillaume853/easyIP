@@ -4,10 +4,6 @@
       <% @roadshows.each do |roadshow| %>
 
         <div class="product">
-          <div class='product-upvote'>
-            <div class="product-arrow"></div>
-            <div class='product-count'>0</div>
-          </div>
           <%= link_to accesss_index_path(roadshow_id: roadshow.id), method: :post do %>
             <% if roadshow.presentation? %>
               <%= cl_image_tag(roadshow.presentation.path, height: 117, width: 175, :fetch_format=>:auto, crop: :fill , class: 'product-image hidden-xs') %>
@@ -21,12 +17,11 @@
               <%= link_to roadshow.company, accesss_index_path(roadshow_id: roadshow.id), method: :post %>
             </h3>
             <p><%= roadshow.url%></p>
+            <p>
+              "<i><%=roadshow.message %> </i>"
+            </p>
           </div>
-          <ul class="list-inline product-controls hidden-sm hidden-xs">
-            <li><a href=""><i class="fa fa-heart"></i></a></li>
-            <li><a href=""><i class="fa fa-share"></i></a></li>
-            <li><a href=""><i class="fa fa-star"></i></a></li>
-          </ul>
+
         </div>
 
       <% end %>

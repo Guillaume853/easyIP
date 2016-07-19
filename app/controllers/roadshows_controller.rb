@@ -5,24 +5,33 @@ class RoadshowsController < ApplicationController
   def index
     if params[:company]
       @roadshows = Roadshow.select{|roadshow| roadshow.company.downcase == params[:company].downcase}
+    elsif params[:user_id]
+      @roadshows = Roadshow.select{|roadshow| roadshow.user.id == params[:user_id].to_i}
     else
       @roadshows = Roadshow.all
     end
   end
 
   def show
-    if (params[:page] && params[:page].to_i >0)
+
+    if (params[:page] && params[:page].to_i > 0)
       @page = params[:page].to_i
     else
       @page = 1
     end
 
     if @roadshow.presentation
- #     @pages_number = @roadshow.presentation[:pages]
+ #    @pages_number = @roadshow.presentation[:pages]
       @pages_number = 999
     else
       @pages_number = 1
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
 
   end
 

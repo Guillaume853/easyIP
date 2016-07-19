@@ -1,0 +1,7 @@
+<div class="media-section" id="presentation">
+  <% if @roadshow.presentation? %>
+    <%= cl_image_tag(@roadshow.presentation.path, width: 200, :page => @page, :fetch_format=>:auto, :quality=> "auto", :crop =>"fill") %>
+  <% else %>
+    <img src="http://unsplash.it/400/300" alt="kudoz" class="product-image">
+  <% end %>
+</div>

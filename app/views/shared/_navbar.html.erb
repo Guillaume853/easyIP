@@ -32,8 +32,8 @@
         <div class="dropdown">
           <p class="navbar-wagon-link" data-toggle="dropdown">Profile</p>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li><a href="#">My IP</a></li>
             <li>
+              <%= link_to "my Presentations", roadshows_path(user_id: current_user.id) %>
               <%= link_to "Edit my Profile", edit_user_registration_path %>
               <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
             </li>

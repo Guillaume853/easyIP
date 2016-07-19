@@ -1,10 +1,15 @@
 <div class="padded"></div>
 
 <div class="container">
-  <h1>
-    The available presentations are:
-  </h1>
+
+  <% if params[:user_id] %>
+    <% if @roadshows == [] %>
+      <h1>You don't have created any presentation</h1>
+    <% else %>
+      <h1> Your presentations are :</h1>
+    <% end %>
+  <%else %>
+    <h1>The available presentations are:</h1>
+  <% end %>
   <%= render "listing" %>
-
-
 </div>
