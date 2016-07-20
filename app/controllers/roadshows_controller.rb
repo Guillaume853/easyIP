@@ -3,9 +3,7 @@ class RoadshowsController < ApplicationController
   before_action :find_roadshow, only: [:show, :edit, :update, :destroy, :confirmation_creation]
 
   def index
-    if params[:company]
-      @roadshows = Roadshow.select{|roadshow| roadshow.company.downcase == params[:company].downcase}
-    elsif params[:user_id]
+    if params[:user_id]
       @roadshows = Roadshow.select{|roadshow| roadshow.user.id == params[:user_id].to_i}
     else
       @roadshows = Roadshow.all
@@ -31,8 +29,6 @@ class RoadshowsController < ApplicationController
       format.html
       format.js
     end
-
-
   end
 
   def new
@@ -75,7 +71,7 @@ class RoadshowsController < ApplicationController
 
   def research
    if params[:roadshow]
-      @roadshows = Roadshow.select{|roadshow| roadshow.company.downcase == params[:roadshow][:company].downcase}
+      @roadshows = Roadshow.select{|roadshow| (roadshow.company.downcase == params[:roadshow][:company].downcase)&&(roadshow.start_date < DateTime.now)&&(roadshow.end_date > DateTime.now)}
     else
       @roadshows =[]
     end
