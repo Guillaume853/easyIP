@@ -79,7 +79,7 @@ class RoadshowsController < ApplicationController
 
   private
   def roadshow_params
-    params.require(:roadshow).permit(:company, :url, :message, :start_date, :end_date, :presentation)
+    params.require(:roadshow).permit(:company, :url, :message, :start_date, :end_date, :start_date_public, :end_date_public, :presentation)
   end
 
   def find_roadshow

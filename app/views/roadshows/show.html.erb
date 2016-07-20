@@ -37,6 +37,7 @@
       </div>
       <div class="media-section">
         <h1><%= @roadshow.company%></h1>
+        <h5> Last update : <%= @roadshow.updated_at %> </h5>
         <h6> <%= link_to "Company Website", @roadshow.url %></h6>
         <% if @roadshow.message %>
           <p>
@@ -48,12 +49,13 @@
         <% end %>
       </div>
       <div class="media-section">
-        <p>
-          Start Date: <%= @roadshow.start_date %>
-        </p>
-        <p>
-          End Date: <%= @roadshow.end_date %>
-        </p>
+        <% if @roadshow.start_date_public %>
+          <p> Start Date: <%= @roadshow.end_date %> </p>
+        <% end %>
+        <% if @roadshow.end_date_public %>
+          <p> End Date: <%= @roadshow.start_date %></p>
+        <% end %>
+
       </div>
       <% if @roadshow.user == current_user %>
         <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>

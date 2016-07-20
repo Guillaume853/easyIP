@@ -16,6 +16,9 @@
             <h3>
               <%= link_to roadshow.company, accesss_index_path(roadshow_id: roadshow.id), method: :post %>
             </h3>
+            <h4>
+              Last update : <%= roadshow.updated_at %>
+            </h4>
             <p><%= roadshow.url%></p>
             <p>
               "<i><%=roadshow.message %> </i>"
