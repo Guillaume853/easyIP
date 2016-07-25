@@ -5,14 +5,13 @@
   </div>
   <div class="media">
     <div class="media-body">
-      <div class="presentation_container">
+      <div class="presentation-container">
         <%= render 'presentation' %>
       </div>
 
       <div class="media-section page-choser">
 
-
-        <%= link_to roadshow_path(id: @roadshow.id, page: @page - 1), {class: "arrow"} do%>
+        <%= link_to roadshow_path(id: @roadshow.id, page: @page - 1), {class: "arrow", remote: true} do%>
           <i class="fa fa-arrow-left" aria-hidden="true"></i>
         <% end %>
 
@@ -23,7 +22,7 @@
 
         <p> / <%= @pages_number %> </p>
 
-        <%= link_to roadshow_path(id: @roadshow.id, page: @page + 1), {class: "arrow"}  do%>
+        <%= link_to roadshow_path(id: @roadshow.id, page: @page + 1), {class: "arrow", remote: true}  do%>
           <i class="fa fa-arrow-right" aria-hidden="true"></i>
         <% end %>
 

@@ -19,8 +19,8 @@ class RoadshowsController < ApplicationController
     end
 
     if @roadshow.presentation
- #    @pages_number = @roadshow.presentation[:pages]
-      @pages_number = 999
+      @pages_number = @roadshow.presentation[:pages]
+ #    @pages_number = 999
     else
       @pages_number = 1
     end
@@ -39,7 +39,8 @@ class RoadshowsController < ApplicationController
     @roadshow = Roadshow.new(roadshow_params)
     @roadshow.user = current_user
     if @roadshow.save
-      redirect_to confirmation_creation_path(id: @roadshow.id)
+      redirect_to new_charge_path(id: @roadshow.id)
+      #redirect_to confirmation_creation_path(id: @roadshow.id)
     else
       render :new
     end
@@ -79,7 +80,7 @@ class RoadshowsController < ApplicationController
 
   private
   def roadshow_params
-    params.require(:roadshow).permit(:company, :url, :message, :start_date, :end_date, :start_date_public, :end_date_public, :presentation)
+    params.require(:roadshow).permit(:company, :url, :message, :start_date, :end_date, :start_date_public, :end_date_public, :presentation, :download, :print, :watermark)
   end
 
   def find_roadshow

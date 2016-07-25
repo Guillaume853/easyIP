@@ -1,4 +1,4 @@
-<div class="media-section" id="presentation">
+<div class="media-section">
   <% if @roadshow.presentation? %>
     <%= cl_image_tag(@roadshow.presentation.path, width: 200, :page => @page, :fetch_format=>"jpg", :quality=>100, :crop =>"fill") %>
   <% else %>

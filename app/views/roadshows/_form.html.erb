@@ -8,6 +8,13 @@
   <%= f.input :start_date_public, label: "Make start date public ?" %>
   <%= f.input :end_date, label: "End Date" %>
   <%= f.input :end_date_public, label: "Make end date public ?" %>
-  <%= f.input :presentation, as: :attachinary %>
-  <%= f.button :submit, "Submit", class: "btn btn-primary" %>
+  <%= f.input :presentation, as: :attachinary, cloudinary: {pages: true} %>
+
+  <p><strong>Confidentiality choices for the presentation :</strong></p>
+  <%= f.input :download, label: "Allow presentation to be downloaded ?" %>
+  <%= f.input :print, label: "Allow the presentation to be printed ?" %>
+  <%= f.input :watermark, label: "Remove watermark ?" %>
+
+  <%= f.button :submit, "Submit and pay", class: "btn btn-primary" %>
 <% end %>
+

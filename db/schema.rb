@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720131426) do
+ActiveRecord::Schema.define(version: 20160725210234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 20160720131426) do
     t.integer  "user_id"
     t.boolean  "start_date_public"
     t.boolean  "end_date_public"
+    t.boolean  "download"
+    t.boolean  "print"
+    t.boolean  "watermark"
     t.index ["user_id"], name: "index_roadshows_on_user_id", using: :btree
   end
 

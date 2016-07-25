@@ -12,6 +12,7 @@ gem 'cloudinary'
 gem "attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
+gem 'stripe'
 
 gem 'sass-rails'
 gem 'jquery-rails'

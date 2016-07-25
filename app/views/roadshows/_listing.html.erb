@@ -4,7 +4,7 @@
       <% @roadshows.each do |roadshow| %>
 
         <div class="product">
-          <%= link_to accesss_index_path(roadshow_id: roadshow.id), method: :post do %>
+          <%= link_to roadshow_path(id: roadshow.id) do %>
             <% if roadshow.presentation? %>
               <%= cl_image_tag(roadshow.presentation.path, height: 117, width: 175, :fetch_format=>:auto, crop: :fill , class: 'product-image hidden-xs') %>
             <% else %>
@@ -14,7 +14,7 @@
 
           <div class='product-body'>
             <h3>
-              <%= link_to roadshow.company, accesss_index_path(roadshow_id: roadshow.id), method: :post %>
+              <%= link_to roadshow.company, roadshow_path(id: roadshow.id) %>
             </h3>
             <h4>
               Last update : <%= roadshow.updated_at %>
