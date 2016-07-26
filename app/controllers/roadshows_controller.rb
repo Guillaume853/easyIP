@@ -11,7 +11,6 @@ class RoadshowsController < ApplicationController
   end
 
   def show
-
     if (params[:page] && params[:page].to_i > 0)
       @page = params[:page].to_i
     else
@@ -19,10 +18,10 @@ class RoadshowsController < ApplicationController
     end
 
     if @roadshow.presentation
-      @pages_number = @roadshow.presentation[:pages]
+      @number_of_pages = @roadshow.number_of_pages
  #    @pages_number = 999
     else
-      @pages_number = 1
+      @number_of_pages = 1
     end
 
     respond_to do |format|
@@ -38,6 +37,7 @@ class RoadshowsController < ApplicationController
   def create
     @roadshow = Roadshow.new(roadshow_params)
     @roadshow.user = current_user
+    @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
     if @roadshow.save
       redirect_to new_charge_path(id: @roadshow.id)
       #redirect_to confirmation_creation_path(id: @roadshow.id)
@@ -50,6 +50,7 @@ class RoadshowsController < ApplicationController
   end
 
   def update
+    @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
     if (@roadshow.user == current_user) && @roadshow.update(roadshow_params)
         #attention le update ci-dessus est le update de active record, pas la méthode update du controleur
       redirect_to confirmation_creation_path(id: @roadshow.id)
@@ -61,7 +62,7 @@ class RoadshowsController < ApplicationController
   def destroy
     if @roadshow.user == current_user
       @roadshow.destroy
-      redirect_to research_path
+      redirect_to roadshows_path(user_id: current_user.id)
     else
       flash[:alert] = "You can't delete this product"
     end

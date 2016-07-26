@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725210234) do
+ActiveRecord::Schema.define(version: 20160726120422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160725210234) do
     t.boolean  "download"
     t.boolean  "print"
     t.boolean  "watermark"
+    t.integer  "number_of_pages"
     t.index ["user_id"], name: "index_roadshows_on_user_id", using: :btree
   end
 

@@ -20,7 +20,7 @@
           <input type="text" class="form-control form-page" name="page" id="page_number">
         </form>
 
-        <p> / <%= @pages_number %> </p>
+        <p> / <%= @number_of_pages %> </p>
 
         <%= link_to roadshow_path(id: @roadshow.id, page: @page + 1), {class: "arrow", remote: true}  do%>
           <i class="fa fa-arrow-right" aria-hidden="true"></i>
