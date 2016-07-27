@@ -37,7 +37,9 @@ class RoadshowsController < ApplicationController
   def create
     @roadshow = Roadshow.new(roadshow_params)
     @roadshow.user = current_user
-    @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
+    if !params[:roadshow][:presentation].include? "path"
+      @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
+    end
     if @roadshow.save
       redirect_to new_charge_path(id: @roadshow.id)
       #redirect_to confirmation_creation_path(id: @roadshow.id)
@@ -50,7 +52,9 @@ class RoadshowsController < ApplicationController
   end
 
   def update
-    @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
+    if !params[:roadshow][:presentation].include? "path"
+      @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
+    end
     if (@roadshow.user == current_user) && @roadshow.update(roadshow_params)
         #attention le update ci-dessus est le update de active record, pas la méthode update du controleur
       redirect_to confirmation_creation_path(id: @roadshow.id)
