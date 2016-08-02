@@ -15,10 +15,10 @@
           <i class="fa fa-arrow-left" aria-hidden="true"></i>
         <% end %>
 
+        <%= form_tag({controller: "roadshows", action: "show"}, method: "get", remote: true) do %>
+          <%= text_field_tag :page, "",class:'form-control form-page' %>
+        <% end %>
 
-        <form method="get">
-          <input type="text" class="form-control form-page" name="page" id="page_number">
-        </form>
 
         <p> / <%= @number_of_pages %> </p>
 
