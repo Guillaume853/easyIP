@@ -1,5 +1,1 @@
-url = <%=@roadshow.id%> + "?pages=" + <%=@page%>;
-
-history.pushState(null, null, url);
-
-$('.presentation-container').html('<%= j render 'presentation', page: @page %>')
+$('.presentation-container').html('<%= j render 'presentation' %>')

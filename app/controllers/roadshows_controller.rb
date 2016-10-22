@@ -19,7 +19,6 @@ class RoadshowsController < ApplicationController
 
     if @roadshow.presentation
       @number_of_pages = @roadshow.number_of_pages
- #    @pages_number = 999
     else
       @number_of_pages = 1
     end
