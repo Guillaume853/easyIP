@@ -11,7 +11,7 @@
 
       <div class="media-section page-choser">
 
-        <%= link_to roadshow_path(id: @roadshow.id, page: @page - 1), {class: "arrow", remote: true} do%>
+        <%= link_to previous_page_path(id: @roadshow.id), {class: "arrow", remote: true}  do%>
           <i class="fa fa-arrow-left" aria-hidden="true"></i>
         <% end %>
 
@@ -19,10 +19,9 @@
           <%= text_field_tag :page, "",class:'form-control form-page' %>
         <% end %>
 
-
         <p> / <%= @number_of_pages %> </p>
 
-        <%= link_to roadshow_path(id: @roadshow.id, page: @page + 1), {class: "arrow", remote: true}  do%>
+        <%= link_to following_page_path(id: @roadshow.id), {class: "arrow", remote: true}  do%>
           <i class="fa fa-arrow-right" aria-hidden="true"></i>
         <% end %>
 

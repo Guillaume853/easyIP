@@ -20,4 +20,7 @@ Rails.application.routes.draw do
 
   resources :latestpages
 
+  get "/following_page" => "latestpages#following_page"
+  get "/previous_page" => "latestpages#previous_page"
+
 end

@@ -8,18 +8,27 @@ class RoadshowsController < ApplicationController
     else
       @roadshows = Roadshow.all
     end
+    @roadshow_seen = []
+    @roadshow.each do |roadshow|
+      @latestpage = Latestpage.where("roadshow_id = ? AND user_id = ?", roadshow.id, current_user.id.to_i).last
+      if @latestpage
+        @roadshow_seen << true
+      else
+        @roadshow_seen << false
+      end
+    end
   end
 
   def show
-    @currentpage = Latestpage.joins(:roadshow, :user).where(roadshows: {id: @roadshow.id.to_i}, users: {id: current_user.id.to_i} )
+    @latestpage = Latestpage.where("roadshow_id = ? AND user_id = ?", params[:id].to_i, current_user.id.to_i).last
 
-
-    if (params[:page] && params[:page].to_i > 0)
+    if params[:page]
       @page = params[:page].to_i
+      @latestpage.page = @page
+      @latestpage.save
     else
-      @page = 1
+      @page = @latestpage.page
     end
-
 
     if @roadshow.presentation
       @number_of_pages = @roadshow.number_of_pages
