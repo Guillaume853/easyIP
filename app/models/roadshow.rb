@@ -1,6 +1,7 @@
 class Roadshow < ApplicationRecord
   has_attachment :presentation
   has_many :accesss
+  has_many :latestpages
 
 
   belongs_to :user

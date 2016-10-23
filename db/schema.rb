@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726120422) do
+ActiveRecord::Schema.define(version: 20161022175845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20160726120422) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
+
+  create_table "latestpages", force: :cascade do |t|
+    t.integer  "page"
+    t.integer  "user_id"
+    t.integer  "roadshow_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["roadshow_id"], name: "index_latestpages_on_roadshow_id", using: :btree
+    t.index ["user_id"], name: "index_latestpages_on_user_id", using: :btree
   end
 
   create_table "roadshows", force: :cascade do |t|
@@ -79,5 +89,7 @@ ActiveRecord::Schema.define(version: 20160726120422) do
 
   add_foreign_key "accesses", "roadshows"
   add_foreign_key "accesses", "users"
+  add_foreign_key "latestpages", "roadshows"
+  add_foreign_key "latestpages", "users"
   add_foreign_key "roadshows", "users"
 end

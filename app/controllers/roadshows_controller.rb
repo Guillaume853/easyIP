@@ -11,11 +11,15 @@ class RoadshowsController < ApplicationController
   end
 
   def show
+    @currentpage = Latestpage.joins(:roadshow, :user).where(roadshows: {id: @roadshow.id.to_i}, users: {id: current_user.id.to_i} )
+
+
     if (params[:page] && params[:page].to_i > 0)
       @page = params[:page].to_i
     else
       @page = 1
     end
+
 
     if @roadshow.presentation
       @number_of_pages = @roadshow.number_of_pages
