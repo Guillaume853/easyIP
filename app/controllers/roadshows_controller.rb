@@ -8,15 +8,7 @@ class RoadshowsController < ApplicationController
     else
       @roadshows = Roadshow.all
     end
-    @roadshow_seen = []
-    @roadshow.each do |roadshow|
-      @latestpage = Latestpage.where("roadshow_id = ? AND user_id = ?", roadshow.id, current_user.id.to_i).last
-      if @latestpage
-        @roadshow_seen << true
-      else
-        @roadshow_seen << false
-      end
-    end
+
   end
 
   def show

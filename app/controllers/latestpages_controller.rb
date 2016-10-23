@@ -17,12 +17,13 @@ class LatestpagesController < ApplicationController
   end
 
   def following_page
-    if (@latestpage.page < @latestpage.roadshow.number_of_pages)
+    if (@latestpage.page < @roadshow.number_of_pages)
       @latestpage.page = @latestpage.page + 1;
     end
 
     if @latestpage.save
       redirect_to roadshow_path(id: @roadshow.id)
+
     else
       #render :roadshows/index
     end
