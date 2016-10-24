@@ -12,7 +12,7 @@
           <% end %>
           <div class='product-body'>
             <h3>
-              <%= link_to roadshow.company, roadshow_path(id: roadshow.id) %>
+              <%= link_to roadshow.company, latestpages_path(id: roadshow.id), method: :post %>
             </h3>
             <h4>
               Last update : <%= roadshow.updated_at %>

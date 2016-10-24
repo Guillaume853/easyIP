@@ -12,7 +12,7 @@ class LatestpagesController < ApplicationController
     if @latestpage.save
       redirect_to roadshow_path(id: @roadshow.id)
     else
-      #render :roadshows/index
+      redirect_to research_path(roadshow: @roadshow)
     end
   end
 

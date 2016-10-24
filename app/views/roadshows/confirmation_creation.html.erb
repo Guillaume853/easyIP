@@ -6,7 +6,7 @@
         Your presentation for <%= @roadshow.company %> has been successfully uploaded !
       </h1>
       <p class="text-center">
-        <%= link_to "View Presentation", roadshow_path(@roadshow), class: "btn btn-success" %>
+        <%= link_to "View Presentation", latestpages_path(id: @roadshow.id), method: :post, class: "btn btn-success" %>
       </p>
     </div>
   </div>
