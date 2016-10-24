@@ -45,7 +45,7 @@ class RoadshowsController < ApplicationController
       @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
     end
     if @roadshow.save
-      redirect_to new_charge_path(id: @roadshow.id)
+      redirect_to confirmation_creation_path(id: @roadshow.id)
       #redirect_to confirmation_creation_path(id: @roadshow.id)
     else
       render :new
