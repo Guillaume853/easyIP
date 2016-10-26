@@ -103,7 +103,7 @@
 .navbar-wagon-search-input {
   flex: 0 1 300px;
   transition: all 0.15s ease;
-  line-height: 40px;
+  line-height: 40px !important;
   font-weight: lighter;
   color: #666666;
   border: 1px solid #E6E6E6;

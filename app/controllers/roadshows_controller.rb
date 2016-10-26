@@ -46,7 +46,6 @@ class RoadshowsController < ApplicationController
     end
     if @roadshow.save
       redirect_to confirmation_creation_path(id: @roadshow.id)
-      #redirect_to confirmation_creation_path(id: @roadshow.id)
     else
       render :new
     end
