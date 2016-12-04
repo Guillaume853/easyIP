@@ -17,19 +17,56 @@
   background: #F8F7F7;
   border-left: 1px solid #f0efef;
 }
+
 .media-section {
   margin: 40px auto;
 }
+
 .media-section:first-child {
   margin-top: 0;
 }
+
 .media-section:last-child {
   margin-bottom: 0;
 }
+
 .form-page{
   width: 45px;
 }
+
 .page-choser{
     font-size: 20px;
+    display: flex;
+    justify-content : space-between;
 }
+
+.arrow {
+  color : $gray ;
+  border : 1px solid transparent;
+  border-color: $gray;
+  padding: 0px 15px;
+  border-radius : 20px;
+  font-weight: bold;
+  opacity : 0.6;
+  font-size: 40px;
+
+}
+
+.arrow:hover {
+  opacity : 1;
+  text-decoration : none;
+  color : $gray ;
+}
+
+.page-choser-number{
+    display: flex;
+    justify-content : space-between;
+    align-items: center;
+}
+
+.btn-download{
+  text-align: center;
+}
+
+
 

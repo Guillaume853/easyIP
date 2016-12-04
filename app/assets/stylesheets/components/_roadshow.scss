@@ -52,15 +52,4 @@
   margin: auto;
 }
 
-.arrow {
-  color : $gray ;
-  border : 2px solid transparent;
-  border-color: $gray;
-  padding: 2px;
-}
 
-.arrow:hover {
-  color : $gray-light;
-  border-color: $gray-light;
-  text-decoration : none;
-}

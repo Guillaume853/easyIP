@@ -11,24 +11,22 @@
 
       <div class="media-section page-choser">
 
-        <%= link_to previous_page_path(id: @roadshow.id), {class: "arrow", remote: true}  do%>
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <%= link_to previous_page_path(id: @roadshow.id), {class: "arrow arrow-left", remote: true}  do%>
+          <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
         <% end %>
-
-        <%= form_tag({controller: "roadshows", action: "show"}, method: "get", remote: true) do %>
-          <%= text_field_tag :page, "",class:'form-control form-page' %>
+        <div class="page-choser-number">
+          <%= form_tag({controller: "roadshows", action: "show"}, method: "get", remote: true) do %>
+            <%= text_field_tag :page, "",class:'form-control form-page' %>
+          <% end %>
+          <p>  / <%= @number_of_pages %></p>
+        </div>
+        <%= link_to following_page_path(id: @roadshow.id), {class: "arrow arrow-right", remote: true}  do%>
+          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
         <% end %>
-
-        <p> / <%= @number_of_pages %> </p>
-
-        <%= link_to following_page_path(id: @roadshow.id), {class: "arrow", remote: true}  do%>
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        <% end %>
-
-        <%= link_to("Download", cl_private_download_url(@roadshow.presentation, :pdf)) %>
-
       </div>
+      <%= link_to "Download in pdf", cl_private_download_url(@roadshow.presentation, :pdf), class: "btn btn-success btn-download" %>
     </div>
+
     <div class="media-aside">
       <div class="close-button">
         <%= link_to research_path do%>
