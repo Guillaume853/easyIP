@@ -38,6 +38,7 @@
     font-size: 20px;
     display: flex;
     justify-content : space-between;
+    align-items: center;
 }
 
 .arrow {
@@ -64,8 +65,13 @@
     align-items: center;
 }
 
+#page-number{
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
 .btn-download{
-  text-align: center;
 }
 
 
