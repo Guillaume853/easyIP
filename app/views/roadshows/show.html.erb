@@ -24,7 +24,10 @@
           <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
         <% end %>
       </div>
-      <%= link_to "Download in pdf", cl_private_download_url(@roadshow.presentation, :pdf), class: "btn btn-success btn-download" %>
+      <div class="media-section download-section">
+        <%= link_to "Download in pdf", cl_private_download_url(@roadshow.presentation, :pdf), class: "btn btn-success btn-download" %>
+      </div>
+
     </div>
 
     <div class="media-aside">
