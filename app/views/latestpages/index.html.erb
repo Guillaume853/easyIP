@@ -1,0 +1,29 @@
+<div class="row">
+
+  <div class="col-sm-6 col-sm-offset-3">
+    <h2>
+      List of access to <%= @roadshow.company %> IP
+    </h2>
+
+    <div>
+      <%= link_to roadshow_path(@roadshow), {class: "btn btn-success"}  do%>
+          Back to <%=@roadshow.company%> IP
+      <% end %>
+    </div>
+  </div>
+  <div class="padded">
+
+  </div>
+
+
+    <table style="width:90%">
+      <% @list.each do |latestpage| %>
+        <tr>
+          <td> utilisateur : <%= latestpage.user_id %></td>
+          <td> page <%= latestpage.page %> </td>
+          <td> <%= latestpage.created_at %> </td>
+        </tr>
+      <% end %>
+    </table>
+
+  </div>

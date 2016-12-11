@@ -13,13 +13,11 @@ Rails.application.routes.draw do
   get "/research" => "roadshows#research"
   get "/confirmation_creation" => "roadshows#confirmation_creation"
 
-
   resources :accesss, only: [:create, :index]
 
   resources :charges
 
-  resources :latestpages
-
+  resources :latestpages, only: [:create, :index]
   get "/following_page" => "latestpages#following_page"
   get "/previous_page" => "latestpages#previous_page"
 

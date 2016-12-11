@@ -2,6 +2,12 @@ class LatestpagesController < ApplicationController
 
   before_action :find_roadshow_latest_page, only: [:following_page, :previous_page]
 
+  def index
+    @roadshow = Roadshow.find(params[:roadshow_id].to_i)
+    @list = Latestpage.select{|latestpage| latestpage.roadshow == @roadshow}
+
+  end
+
   def create
     @latestpage = Latestpage.new
     @latestpage.user = current_user
