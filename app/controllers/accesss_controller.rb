@@ -1,4 +1,4 @@
-Lateclass AccesssController < ApplicationController
+class AccesssController < ApplicationController
 
   def create
     @roadshow = Roadshow.find(params[:roadshow_id])
