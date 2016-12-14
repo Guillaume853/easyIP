@@ -5,7 +5,7 @@
         <div class="product">
           <%= link_to latestpages_path(id: roadshow.id), method: :post do %>
             <% if roadshow.presentation? %>
-              <%= cl_image_tag(roadshow.presentation.path, height: 117, width: 175, :fetch_format=>:auto, crop: :fill , class: 'product-image hidden-xs') %>
+              <%= cl_image_tag(roadshow.presentation.path.gsub(".pdf",""), height: 117, width: 175, :fetch_format=>:auto, :format=> :jpg, crop: :fill , class: 'product-image hidden-xs') %>
             <% else %>
               <img src="http://unsplash.it/300/200" alt="kudoz" class="product-image hidden-xs">
             <% end %>
