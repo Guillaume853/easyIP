@@ -1,35 +1,37 @@
-<div class="padded"></div>
-<div class="row">
-  <div class="col-sm-6 col-sm-offset-3">
-    <h2>
-      List of access to <%= @roadshow.company %> Investor Presentation
-    </h2>
+<div class="container">
+ <div class="padded"></div>
+ <div class="row">
+   <div class="col-sm-6 col-sm-offset-3">
+     <h2>
+       List of access to <%= @roadshow.company %> Investor Presentation
+     </h2>
 
-    <div style="display:flex;  align-items:center; justify-content:center;">
-      <%= link_to roadshow_path(@roadshow), {class: "btn btn-success"}  do%>
-          Back to <%=@roadshow.company%> IP
-      <% end %>
-    </div>
-  </div>
-  <div class="padded"></div>
-</div>
-<div class="row">
-  <div class="col-xs-10 col-xs-offset-1">
-    <table style="width:90%;">
-      <tr>
-        <td> acces number </td>
-        <td> user </td>
-        <td> latest page seen </td>
-        <td> latest access </td>
-      </tr>
-      <% @list.each do |latestpage| %>
-        <tr>
-          <td> <%= latestpage.id %></td>
-          <td> <%= latestpage.user.email %></td>
-          <td> <%= latestpage.page %> </td>
-          <td> <%= latestpage.created_at %> </td>
-        </tr>
-      <% end %>
-    </table>
-  </div>
+     <div style="display:flex;  align-items:center; justify-content:center;">
+       <%= link_to roadshow_path(@roadshow), {class: "btn btn-success"}  do%>
+           Back to <%=@roadshow.company%> IP
+       <% end %>
+     </div>
+   </div>
+   <div class="padded"></div>
+ </div>
+ <div class="row">
+   <div class="col-xs-10 col-xs-offset-1">
+     <table style="width:90%;">
+       <tr>
+         <td> acces number </td>
+         <td> user </td>
+         <td> latest page seen </td>
+         <td> latest access </td>
+       </tr>
+       <% @list.each do |latestpage| %>
+         <tr>
+           <td> <%= latestpage.id %></td>
+           <td> <%= latestpage.user.email %></td>
+           <td> <%= latestpage.page %> </td>
+           <td> <%= latestpage.created_at %> </td>
+         </tr>
+       <% end %>
+     </table>
+   </div>
+ </div>
 </div>

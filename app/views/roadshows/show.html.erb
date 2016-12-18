@@ -59,9 +59,11 @@
 
       </div>
       <% if @roadshow.user == current_user %>
-        <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
-        <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
-        <%= link_to "View accesses", latestpages_path(roadshow_id: @roadshow.id), class: "btn btn-success" %>
+        <div id="administrator">
+          <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
+          <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
+          <%= link_to "View accesses", latestpages_path(roadshow_id: @roadshow.id), class: "btn btn-success" %>
+        </div>
       <% end %>
     </div>
   </div>
