@@ -11,6 +11,8 @@
            Back to <%=@roadshow.company%> IP
        <% end %>
      </div>
+
+      <%= link_to "download accesses in csv format", latestpages_path(roadshow_id: @roadshow.id), {format: "csv"} %>
    </div>
    <div class="padded"></div>
  </div>

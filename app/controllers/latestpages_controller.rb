@@ -6,6 +6,11 @@ class LatestpagesController < ApplicationController
     @roadshow = Roadshow.find(params[:roadshow_id].to_i)
     @list = Latestpage.select{|latestpage| latestpage.roadshow == @roadshow}
 
+    respond_to do |format|
+      format.html
+      format.csv { send_data @latestpages.to_csv }
+      format.xls
+    end
   end
 
   def create
