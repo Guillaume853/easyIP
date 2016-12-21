@@ -15,8 +15,8 @@
     <% @list.each do |latestpage| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= latestpage.id %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= latestpage.user.email %></Data></Cell>
-        <!--<Cell><Data ss:Type="Number"><%= latestpage.page %></Data></Cell>-->
+        <!--<Cell><Data ss:Type="String"><%= latestpage.user.email %></Data></Cell>-->
+        <Cell><Data ss:Type="Number"><%= latestpage.page %></Data></Cell>-->
         <!--<Cell><Data ss:Type="DateTime"><%= latestpage.updated_at %></Data></Cell>-->
       </Row>
     <% end %>
