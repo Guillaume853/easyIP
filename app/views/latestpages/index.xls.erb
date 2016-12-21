@@ -8,17 +8,10 @@
     <Table>
       <Row>
         <Cell><Data ss:Type="String">ID</Data></Cell>
-        <Cell><Data ss:Type="String">Page</Data></Cell>
-        <Cell><Data ss:Type="String">user_id</Data></Cell>
-        <Cell><Data ss:Type="String">Roadshow_id</Data></Cell>
-
       </Row>
     <% @latestpages.each do |latestpage| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= latestpage.id %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= latestpage.page %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= latestpage.user_id %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= latestpage.roadshow_id %></Data></Cell>
       </Row>
     <% end %>
     </Table>

@@ -8,7 +8,7 @@ class LatestpagesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @latestpages.to_csv }
+      format.csv { send_data @list.to_csv }
       format.xls
     end
   end

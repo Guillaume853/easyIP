@@ -12,7 +12,9 @@
        <% end %>
      </div>
 
-      <%= link_to "download accesses in csv format", latestpages_path(roadshow_id: @roadshow.id), {format: "csv"} %>
+      <%= link_to "csv", latestpages_path(roadshow_id: @roadshow.id, format: "csv"), class: "btn btn-primary" %>
+      <%= link_to "xls", latestpages_path(roadshow_id: @roadshow.id, format: "xls"), class: "btn btn-primary" %>
+
    </div>
    <div class="padded"></div>
  </div>
