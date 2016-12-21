@@ -8,10 +8,16 @@
     <Table>
       <Row>
         <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">User</Data></Cell>
+        <Cell><Data ss:Type="String">Latest page seen</Data></Cell><Cell>
+        <Data ss:Type="String">Date/time</Data></Cell>
       </Row>
     <% @list.each do |latestpage| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= latestpage.id %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= latestpage.user.email %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= latestpage.page %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= latestpage.updated_at %></Data></Cell>
       </Row>
     <% end %>
     </Table>

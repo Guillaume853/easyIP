@@ -1,9 +1,10 @@
 <div class="container">
- <div class="padded"></div>
- <div class="row">
-   <div class="col-sm-6 col-sm-offset-3">
-     <h2>
-       List of access to <%= @roadshow.company %> Investor Presentation
+ <div class="row" style= "position: relative">
+   <div class="col-sm-8 col-sm-offset-2">
+    <div class="padded"></div>
+    <div class="padded"></div>
+     <h2 style="text-align:center">
+       List of accesses to <%= @roadshow.company %> Investor Presentation
      </h2>
 
      <div style="display:flex;  align-items:center; justify-content:center;">
@@ -11,22 +12,24 @@
            Back to <%=@roadshow.company%> IP
        <% end %>
      </div>
-
-      <%= link_to "csv", latestpages_path(roadshow_id: @roadshow.id, format: "csv"), class: "btn btn-primary" %>
-      <%= link_to "xls", latestpages_path(roadshow_id: @roadshow.id, format: "xls"), class: "btn btn-primary" %>
-
+      <!--<%= link_to "csv", latestpages_path(roadshow_id: @roadshow.id, format: "csv"), class: "btn btn-primary" %>-->
+      <%= link_to latestpages_path(roadshow_id: @roadshow.id, format: "xls"), class: "upload-button" do %>
+        <i class="fa fa-upload" aria-hidden="true"></i> xls
+      <% end %>
+      <div class="padded"></div>
    </div>
-   <div class="padded"></div>
+   <br>
  </div>
  <div class="row">
-   <div class="col-xs-10 col-xs-offset-1">
+   <div class="col-xs-10 col-xs-offset-1" style="display:flex;  align-items:center; justify-content:center;">
      <table style="width:90%;">
        <tr>
-         <td> acces number </td>
-         <td> user </td>
-         <td> latest page seen </td>
-         <td> latest access </td>
+         <td> <b>acces number</b> </td>
+         <td> <b>user</b> </td>
+         <td> <b>latest page seen</b> </td>
+         <td> <b>latest access</b> </td>
        </tr>
+
        <% @list.each do |latestpage| %>
          <tr>
            <td> <%= latestpage.id %></td>
