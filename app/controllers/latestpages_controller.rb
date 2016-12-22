@@ -5,11 +5,11 @@ class LatestpagesController < ApplicationController
   def index
     @roadshow = Roadshow.find(params[:roadshow_id].to_i)
     @list = Latestpage.select{|latestpage| latestpage.roadshow == @roadshow}
-
     respond_to do |format|
       format.html
-      format.csv { send_data @list.to_csv }
-      format.xls
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename= \"#{Date.today}_accesses_to_#{@roadshow.company}_IP.xlsx\""
+      }
     end
   end
 

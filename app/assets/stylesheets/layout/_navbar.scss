@@ -69,13 +69,14 @@
 .navbar-wagon-button {
   margin-left: 10px;
   padding: 0 20px;
-  border-radius: 20em;
-  line-height: 40px;
+  border-radius: 2 px;
+  line-height: 38px;
   background-color: $green;
   color: white;
   font-size: 14px;
   border: 2px solid $green;
 }
+
 .navbar-wagon-button:hover {
   color: white;
   background: $green-dark;

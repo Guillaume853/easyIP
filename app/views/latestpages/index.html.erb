@@ -7,13 +7,13 @@
        List of accesses to <%= @roadshow.company %> Investor Presentation
      </h2>
 
-     <div style="display:flex;  align-items:center; justify-content:center;">
+     <div style="display:flex;  align-items:center; justify-content:center; ">
        <%= link_to roadshow_path(@roadshow), {class: "btn btn-success"}  do%>
            Back to <%=@roadshow.company%> IP
        <% end %>
      </div>
       <!--<%= link_to "csv", latestpages_path(roadshow_id: @roadshow.id, format: "csv"), class: "btn btn-primary" %>-->
-      <%= link_to latestpages_path(roadshow_id: @roadshow.id, format: "xls"), class: "upload-button" do %>
+      <%= link_to latestpages_path(roadshow_id: @roadshow.id, format: "xlsx"), class: "upload-button" do %>
         <i class="fa fa-upload" aria-hidden="true"></i> xls
       <% end %>
       <div class="padded"></div>

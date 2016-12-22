@@ -1,0 +1,11 @@
+wb = xlsx_package.workbook
+wb.styles do |style|
+  date_time_cell = style.add_style(format_code: "dd/mm/yyyy-hh:mm")
+  wb.add_worksheet(name: "Accesses") do |sheet|
+  sheet.add_row ["id", "user", "latest page consulted", "last access date &time"]
+    @list.each do |latestpage|
+      sheet.add_row [latestpage.id, latestpage.user.email, latestpage.page, latestpage.updated_at],
+      style: [nil, nil, nil, date_time_cell]
+    end
+  end
+end
