@@ -24,12 +24,12 @@
           <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
         <% end %>
       </div>
-      <div class="media-section download-section">
-        <%= link_to "Download in pdf", cl_private_download_url(@roadshow.presentation, :pdf), class: "btn btn-success btn-download" %>
-      </div>
-
+      <% if @roadshow.download %>
+        <div class="media-section download-section">
+          <%= link_to "download in pdf", cloudinary_url(@roadshow.presentation.public_id), target: :_blank, class: "btn btn-success download-button"%>
+        </div>
+      <% end %>
     </div>
-
     <div class="media-aside">
       <div class="close-button">
         <%= link_to research_path do%>
