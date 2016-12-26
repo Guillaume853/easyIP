@@ -1,8 +1,6 @@
 <div class="banner">
-
   <div class="banner-content">
     <%#= render "shared/flashes" %>
-
     <h1>EasyIP</h1>
     <p>The easiest access to Investor Presentations</p>
     <% if user_signed_in? %>
@@ -12,3 +10,52 @@
     <% end %>
   </div>
 </div>
+
+<div id="about">
+  <div class="padded"></div>
+  <div class="center">
+    <h2>Why EasyIP ?</h2>
+    <h4> Four reasons among many why you should chose us</h4>
+  </div>
+  <div class="padded"></div>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3 center">
+          <%=image_tag "instantaneity.jpg", class:"about-image"%>
+          <div class="about-item">
+            <h2>Instantaneity</h2>
+            <p>Easily and instantaneously share your investor presentations to potential investors</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 center">
+          <%=image_tag "customization.jpg", class:"about-image"%>
+          <div class="about-item">
+            <h2>Customization</h2>
+            <p>Use our set of options to design the way your investor presentation is displayed. Your settings can be modified at any moment and are immediately applicable.</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 center">
+          <%=image_tag "tracking.jpg", class:"about-image"%>
+          <div class="about-item">
+            <h2>Tracking</h2>
+            <p>Track accesses to your investor presentations. Export the list of access in xls format.</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 center">
+          <%=image_tag "cost_efficiency.jpg", class:"about-image"%>
+          <div class="about-item">
+            <h2>Cost-efficiency</h2>
+            <p>EasyIP is by far the most cost-efficient solution to share your investor presentations (on average ten times cheaper than competing solutions).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="padded"></div>
+</div>
+<div class="footer">
+  <div class="paded"></div>
+  <div class="padded"></div>
+</div>
+

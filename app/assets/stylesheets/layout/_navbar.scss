@@ -47,6 +47,7 @@
   padding: 0 20px;
   color: $gray-dark;
   font-size: 16px;
+  white-space: nowrap
 }
 
 /* Navbar standard link */
@@ -63,6 +64,7 @@
 .navbar-wagon-link:hover {
   color: $gray-darker;
   text-decoration: none;
+  text-shadow: none;
 }
 
 /* Navbar right button */
@@ -91,6 +93,7 @@
   padding: 0 10px;
   position: relative;
 }
+
 .navbar-wagon-search-btn {
   line-height: 40px;
   color: #E6E6E6;
@@ -161,4 +164,9 @@
   position: absolute;
   top: 13px;
   right: 20px;
+}
+
+#why_logged_out{
+  position: relative;
+  right: 71px;
 }

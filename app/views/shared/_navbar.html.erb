@@ -15,6 +15,11 @@
 
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <div class="navbar-wagon-item">
+        <%= link_to root_path(anchor: 'about') do%>
+          <p class="navbar-wagon-link">Why EasyIP ?</p>
+        <% end %>
+      </div>
 
       <!-- Search form -->
       <form action="/research" class="navbar-wagon-search">
@@ -30,7 +35,7 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <p class="navbar-wagon-link" data-toggle="dropdown">Profile</p>
+          <p class="navbar-wagon-link" data-toggle="dropdown">My Profile</p>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "my Presentations", roadshows_path(user_id: current_user.id) %>
@@ -48,7 +53,6 @@
     <div class="navbar-wagon-item hidden-md hidden-lg">
 
       <!-- Search form -->
-
 
       <div class="dropdown">
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
@@ -69,7 +73,22 @@
     </div>
 
   <% else %>
-    <%= link_to "Login", new_user_session_path, class: "btn navbar-wagon-button", id: "navbar-login-button" %>
+<!-- Logo -->
+    <div class="navbar-wagon-logo">
+      <%= link_to root_path, {class:"btn navbar-wagon-button", id:"navbar-wagon-logo"} do %>
+        <i class="fa fa-picture-o" aria-hidden="true"></i>
+      <% end %>
+    </div>
+
+    <!-- Right Navigation -->
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <div class="navbar-wagon-item" id="why_logged_out">
+        <%= link_to root_path(anchor: 'about') do%>
+          <p class="navbar-wagon-link">Why EasyIP ?</p>
+        <% end %>
+      </div>
+      <%= link_to "Login", new_user_session_path, class: "btn navbar-wagon-button", id: "navbar-login-button" %>
+    </div>
   <% end %>
 </div>
 
