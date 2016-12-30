@@ -1,3 +1,7 @@
+.top{
+  position: relative;
+}
+
 .banner {
   background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url('background.jpg');
   color: white;
@@ -6,8 +10,8 @@
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   h1 {
     font-size: 50px;
     font-weight: bold;
@@ -20,4 +24,16 @@
     margin-bottom: 20px;
   };
 }
+
+.arrow_to_about{
+  width: 100px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  bottom: 80px;
+  a{
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
 

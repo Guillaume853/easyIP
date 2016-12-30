@@ -1,15 +1,23 @@
-<div class="banner">
-  <div class="banner-content">
-    <%#= render "shared/flashes" %>
-    <h1>EasyIP</h1>
-    <p>The easiest access to Investor Presentations</p>
-    <% if user_signed_in? %>
-      <%= link_to "Search an IP", research_path, class: "home-button" %>
-    <% else %>
-      <%= link_to "Sign-up", new_user_registration_path, class: "home-button" %>
+<div class="top">
+  <div class="banner">
+    <div class="banner-content">
+      <%#= render "shared/flashes" %>
+      <h1>EasyIP</h1>
+      <p>The easiest access to Investor Presentations</p>
+      <% if user_signed_in? %>
+        <%= link_to "Search an IP", research_path, class: "home-button" %>
+      <% else %>
+        <%= link_to "Sign-up", new_user_registration_path, class: "home-button" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="arrow_to_about">
+    <%=link_to root_path(anchor: 'about') do%>
+      <h1><i class="fa fa-angle-down pulse" aria-hidden="true"></i></h1>
     <% end %>
   </div>
 </div>
+
 
 <div id="about">
   <div class="padded"></div>
@@ -54,6 +62,7 @@
   </div>
   <div class="padded"></div>
 </div>
+
 <div id="footer">
   <div class="padded"></div>
   <div class="row">
@@ -66,8 +75,8 @@
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-3 center">Contact : <br> contact@easyip-app.com</div>
-        <div class="col-xs-12 col-sm-6 col-md-3 center">Publication is managed by EasyIP</div>
-        <div class="col-xs-12 col-sm-6 col-md-3 center">According to French law Nr 78-12 you can modify your data by sending an email to contact@easyip-app.com</div>
+        <div class="col-xs-12 col-sm-6 col-md-3 center">The content of this website is managed by EasyIP. <br> Our application is hosted by heroku on servers belonging to Amazon Web Services located in Ireland.</div>
+        <div class="col-xs-12 col-sm-6 col-md-3 center">According to French law Nr 78-12 you can access and modify your data by sending an email to: contact@easyip-app.com</div>
       </div>
     </div>
   </div>
