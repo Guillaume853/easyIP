@@ -167,3 +167,13 @@
   position: relative;
   right: 71px;
 }
+
+a:focus {
+ outline:0 !important;
+ text-decoration: none !important;
+}
+
+a:hover {
+ text-decoration: none !important;
+}
+

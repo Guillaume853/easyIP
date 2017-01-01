@@ -8,11 +8,16 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <script type="text/javascript"> $(function ()
+      { $("#login").modal({show:false });
+    </script>
   </head>
   <body>
-    <div style = "background-color: rgb(250,250, 250) ; background-size: cover !important; height: 100vh;">
+    <div style = "background-color: rgb(250,250,250) ; background-size: cover !important">
       <%= render "shared/navbar" %>
       <%= render "shared/message" %>
+      <%= render "pages/login_modal"%>
+      <%= render "pages/signup_modal"%>
       <%= yield %>
     </div>
     <%= javascript_include_tag 'application' %>

@@ -6,7 +6,7 @@
     <% if user_signed_in? %>
       <%= link_to "Search an IP", research_path, class: "home-button" %>
     <% else %>
-      <%= link_to "Sign-up", new_user_registration_path, class: "home-button" %>
+      <%= link_to 'Sign-up', "#", data: {toggle: "modal", target: "#sign_up"}, class: "home-button"%>
     <% end %>
   </div>
 </div>
