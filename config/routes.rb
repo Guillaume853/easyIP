@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get "/research" => "roadshows#research"
   get "/confirmation_creation" => "roadshows#confirmation_creation"
+  get "/payment_option" => "roadshows#payment_option"
 
   resources :accesss, only: [:create, :index]
 

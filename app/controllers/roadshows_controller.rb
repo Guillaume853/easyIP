@@ -1,6 +1,6 @@
 class RoadshowsController < ApplicationController
 
-  before_action :find_roadshow, only: [:show, :edit, :update, :destroy, :confirmation_creation]
+  before_action :find_roadshow, only: [:show, :edit, :update, :destroy, :confirmation_creation, :payment_option]
 
   def index
     if params[:user_id]
@@ -8,7 +8,6 @@ class RoadshowsController < ApplicationController
     else
       @roadshows = Roadshow.all
     end
-
   end
 
   def show
@@ -45,7 +44,7 @@ class RoadshowsController < ApplicationController
       @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
     end
     if @roadshow.save
-      redirect_to confirmation_creation_path(id: @roadshow.id)
+      redirect_to payment_option_path(id: @roadshow.id)
     else
       render :new
     end
@@ -76,6 +75,9 @@ class RoadshowsController < ApplicationController
   end
 
   def confirmation_creation
+  end
+
+  def payment_option
   end
 
   def research
