@@ -54,7 +54,7 @@ class RoadshowsController < ApplicationController
   end
 
   def update
-    if !params[:roadshow][:presentation].include? "path"
+    if !params[:roadshow][:presentation].include?
       @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
     end
     if (@roadshow.user == current_user) && @roadshow.update(roadshow_params)
@@ -75,6 +75,10 @@ class RoadshowsController < ApplicationController
   end
 
   def confirmation_creation
+    @invoices = Invoice.select{|invoice| invoice.roadshow.id == params[:id].to_i}
+    @invoices.each do |invoice|
+      invoice.is_paid = true
+    end
   end
 
   def payment_option

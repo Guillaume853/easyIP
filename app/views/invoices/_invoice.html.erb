@@ -1,0 +1,78 @@
+<div class="invoice">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="row">
+        <div class="col-sm-6 center">
+          <%= image_tag "logo" %>
+          <h1>EasyIP</h1>
+        </div>
+        <div class="col-sm-6 center">
+          <h3>Invoice</h3>
+          <table class="references">
+            <tr>
+              <td>Reference :</td>
+              <td><%= @invoice.id %></td>
+            </tr>
+            <tr>
+              <td>Date :</td>
+              <td><%= @invoice.created_at.strftime("%B %d, %Y") %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 company-address">
+          <ul>
+            <li>From : </li>
+            <li>EasyIP</li>
+            <li>Paris- FRANCE</li>
+            <li><b>www.easyip-app.com</b></li>
+          </ul>
+
+        </div>
+        <div class="col-sm-6 client-address">
+          <ul>
+            <li><%=@invoice.roadshow.user.email%></li>
+            <li><%=@invoice.roadshow.company%></li>
+            <li>1 fictive address Street</li>
+            <li>LONDON - UNITED KINGDOM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="padded"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="description">Description</th>
+        <th>Price</th>
+        <th>VAT</th>
+        <th>Total Tax Included</th>
+      </tr>
+    </thead>
+    <tr>
+      <td class="description">Investor Presentation for <%= @invoice.roadshow.company %></td>
+      <td><%=@invoice.price%></td>
+      <td>0%</td>
+      <td><%=@invoice.price %></td>
+    </tr>
+    <tr class="invoice-spacing">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="total">
+      <td>Total (in EUR) </td>
+      <td></td>
+      <td></td>
+      <td><%=@invoice.price %></td>
+    </tr>
+  </table>
+
+</div>
+

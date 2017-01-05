@@ -3,7 +3,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-8 col-sm-offset-2" style="text-align:center">
       <h2>
         Your presentation has been successfully uploaded.
       </h2>
@@ -11,7 +11,7 @@
         To activate it, you can either :
       </h3>
       <%= link_to "Pay us directly with Stripe", new_charge_path(id: @roadshow.id), class: "btn btn-success" %>
-      <%= link_to "Download the bill and pay us later", "#", class: "btn btn-primary" %>
+      <%= link_to "Download the bill and pay us later", invoices_path(id: @roadshow.id), method: :post, class: "btn btn-primary" %>
     </div>
   </div>
 </div>

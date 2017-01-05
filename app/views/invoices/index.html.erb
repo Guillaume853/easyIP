@@ -1,0 +1,9 @@
+<div class="padded"></div>
+<h1>Invoices</h1>
+<ul>
+  <% @invoices.each do |invoice| %>
+  <li>
+    <%= link_to "#{invoice.id} - #{invoice.roadshow.company} - #{invoice.created_at.strftime("%B %d, %Y")} ", invoice_path(invoice) %>
+  </li>
+  <% end %>
+</ul>

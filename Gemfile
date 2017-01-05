@@ -22,6 +22,9 @@ gem 'font-awesome-sass'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'autoprefixer-rails'
 gem 'axlsx_rails'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
+gem 'render_anywhere'
 
 group :development, :test do
   gem 'binding_of_caller'

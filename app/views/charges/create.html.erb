@@ -1,3 +1,4 @@
 <h2>Your <strong>EUR 0.50</strong> payment successfully went through</h2>
 
 <%= link_to "back to EasyIP", confirmation_creation_path(id: @roadshow.id), class: "btn btn-primary" %>
+<%= link_to "Access to the bill", invoices_path(id: @roadshow.id), method: :post, class: "btn btn-success" %>

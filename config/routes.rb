@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'invoices/index'
+
+  get 'invoices/show'
+
+  get 'invoices/new'
+
+  get 'invoices/create'
+
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
 
@@ -21,5 +29,9 @@ Rails.application.routes.draw do
   resources :latestpages, only: [:create, :index]
   get "/following_page" => "latestpages#following_page"
   get "/previous_page" => "latestpages#previous_page"
+
+  resources :invoices, only: [:index, :show, :new, :create] do
+    resource :download, only: [:show]
+  end
 
 end
