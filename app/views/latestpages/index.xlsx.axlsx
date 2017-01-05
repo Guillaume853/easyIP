@@ -4,7 +4,7 @@ wb.styles do |style|
   wb.add_worksheet(name: "Accesses") do |sheet|
   sheet.add_row ["id", "user", "latest page consulted", "last access date &time"]
     @list.each do |latestpage|
-      sheet.add_row [latestpage.id, latestpage.user.email, latestpage.page, latestpage.updated_at],
+      sheet.add_row [latestpage.updated_at, latestpage.user.email, latestpage.page],
       style: [nil, nil, nil, date_time_cell]
     end
   end

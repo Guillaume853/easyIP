@@ -4,7 +4,7 @@ class LatestpagesController < ApplicationController
 
   def index
     @roadshow = Roadshow.find(params[:roadshow_id].to_i)
-    @list = Latestpage.select{|latestpage| latestpage.roadshow == @roadshow}
+    @list = Latestpage.select{|latestpage| latestpage.roadshow == @roadshow}.sort_by(&:id).reverse
     respond_to do |format|
       format.html
       format.xlsx {

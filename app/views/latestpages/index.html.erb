@@ -22,20 +22,18 @@
  </div>
  <div class="row">
    <div class="col-xs-10 col-xs-offset-1" style="display:flex;  align-items:center; justify-content:center;">
-     <table style="width:90%;">
+     <table style="width:90%; text-align: center">
        <tr>
-         <td> <b>acces number</b> </td>
-         <td> <b>user</b> </td>
-         <td> <b>latest page seen</b> </td>
-         <td> <b>latest access</b> </td>
+         <td> <b>Latest Access Date</b> </td>
+         <td> <b>User Email</b> </td>
+         <td> <b>Latest Page Seen</b> </td>
        </tr>
 
        <% @list.each do |latestpage| %>
          <tr>
-           <td> <%= latestpage.id %></td>
+           <td> <%= latestpage.created_at %></td>
            <td> <%= latestpage.user.email %></td>
            <td> <%= latestpage.page %> </td>
-           <td> <%= latestpage.created_at %> </td>
          </tr>
        <% end %>
      </table>
