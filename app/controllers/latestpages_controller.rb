@@ -21,7 +21,7 @@ class LatestpagesController < ApplicationController
     @latestpage.page = 1
 
     if @latestpage.save
-      redirect_to roadshow_path(id: @roadshow.id)
+      redirect_to disclaimer_path(id: @roadshow.id)
     else
       redirect_to research_path(roadshow: @roadshow)
     end

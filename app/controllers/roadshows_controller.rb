@@ -1,6 +1,6 @@
 class RoadshowsController < ApplicationController
 
-  before_action :find_roadshow, only: [:show, :edit, :update, :destroy, :confirmation_creation, :payment_option]
+  before_action :find_roadshow, only: [:show, :edit, :update, :destroy, :confirmation_creation, :payment_option, :disclaimer]
 
   def index
     if params[:user_id]
@@ -84,9 +84,12 @@ class RoadshowsController < ApplicationController
   def payment_option
   end
 
+  def disclaimer
+  end
+
   def research
-   if params[:roadshow]
-      @roadshows = Roadshow.select{|roadshow| (roadshow.company.downcase == params[:roadshow][:company].downcase)&&(roadshow.start_date < DateTime.now)&&(roadshow.end_date > DateTime.now)}
+   if params[:company]
+      @roadshows = Roadshow.select{|roadshow| (roadshow.company.downcase == params[:company].downcase)&&(roadshow.start_date < DateTime.now)&&(roadshow.end_date > DateTime.now)}
     else
       @roadshows =[]
     end

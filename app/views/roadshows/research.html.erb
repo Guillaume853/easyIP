@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <% if params[:roadshow] && (@roadshows != []) %>
+      <% if params[:company] && (@roadshows != []) %>
         <h2>
           Results of your research:
         </h2>
@@ -13,7 +13,7 @@
         </p>
       <% end %>
 
-      <% if params[:roadshow] && (@roadshows == []) %>
+      <% if params[:company] && (@roadshows == []) %>
         <h2>
         Sorry! No result matches your research
         </h2>

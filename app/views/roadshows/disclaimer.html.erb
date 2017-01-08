@@ -1,0 +1,50 @@
+<div class="padded"></div>
+
+<div class="padded"></div>
+
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    <h3>DISCLAIMER</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    The information contained in this Investor Presentation does not constitute an offer
+    to sell or a sollication of an offer to buy any securities. The of any information contained in this presentation
+    may be restricted by law in certain jurisdictions. There should be no sale of such securities in any jurisdiction
+    in which an offer, sollicitation or sale would be unlawful.
+  </div>
+</div>
+
+<div class="padded"></div>
+
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    By clicking on "YES" below, you agree that:
+    <br>1/ you will not print, copy nor transmit in any form the content of this presentation;
+    <br>2/ The confidential password assigned to your organisation has not been and
+    will not be disclosed to any person other than an employee of this organisation;
+    <br>3/ You are not resident in the United States nor a U.S. person, as defined in Regulation S under the
+    U.S. Securities Act of 1933 as amended, nor acting on behalf of U.S. person.
+  </div>
+</div>
+
+<div class="padded"></div>
+
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="row">
+      <div class="col-xl-6">
+        <h5><strong>I have read and understood the above statement and I agree with it :</strong> </h5>
+      </div>
+      <div class="col-xl-6">
+        <%= link_to "No", research_path(company: @roadshow.company), class: "btn btn-danger" %>
+
+        <%= link_to "Yes", roadshow_path(id: @roadshow.id.to_i), class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
