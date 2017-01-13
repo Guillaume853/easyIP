@@ -1,17 +1,21 @@
 <div class="padded">
 </div>
+<div class="padded"></div>
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2" style="text-align:center">
-      <h2>
-        Your presentation has been successfully uploaded.
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2 class= "center">
+        Congratulations ! <br> Your presentation has been successfully uploaded.
       </h2>
-      <h3>
-        To activate it, you can either :
-      </h3>
-      <%= link_to "Pay us directly with Stripe", new_charge_path(id: @roadshow.id), class: "btn btn-success" %>
-      <%= link_to "Download the bill and pay us later", invoices_path(id: @roadshow.id), method: :post, class: "btn btn-primary" %>
+      <div class="padded"></div>
+      <p> To activate it and make it visible by your potential investors, the flat price is <strong>EUR 9.90</strong>. You can then extend the maturity, modify the content and track accesses as much as you wish.</p>
+
+      <div class="padded"></div>
+
+      <div class="center"><%= link_to "Pay us directly with Stripe", new_charge_path(id: @roadshow.id), class: "btn btn-success" %>
+
+
     </div>
   </div>
 </div>

@@ -1,9 +1,28 @@
 <div class="padded"></div>
-<h1>Invoices</h1>
+<div class="padded"></div>
+<h2 class="center">Invoices for <%= current_user.email %></h2>
+<div class="padded"></div>
 <ul>
-  <% @invoices.each do |invoice| %>
-  <li>
-    <%= link_to "#{invoice.id} - #{invoice.roadshow.company} - #{invoice.created_at.strftime("%B %d, %Y")} ", invoice_path(invoice) %>
-  </li>
-  <% end %>
-</ul>
+<table style="width:90%; text-align: center">
+    <tr>
+      <td> <strong>Reference</strong> </td>
+      <td> <strong>Company</strong> </td>
+      <td> <strong>Creation Date</strong> </td>
+      <td> <strong>print</strong> </td>
+    </tr>
+
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td> <%=invoice.id %>  </td>
+        <td> <%= link_to "#{invoice.roadshow.company}", invoice_path(invoice) %></td>
+        <td> <%=invoice.created_at.strftime(" %d %B, %Y") %></td>
+        <td>
+          <%= link_to "PDF",
+            invoice_download_path(invoice, format: "pdf"),
+            target: "_blank"%>
+        </td>
+      </tr>
+    <% end %>
+  </ul>
+</table>
+

@@ -1,4 +1,20 @@
-<h2>Your <strong>EUR 0.50</strong> payment successfully went through</h2>
 
-<%= link_to "back to EasyIP", confirmation_creation_path(id: @roadshow.id), class: "btn btn-primary" %>
-<%= link_to "Access to the bill", invoices_path(id: @roadshow.id), method: :post, class: "btn btn-success" %>
+<div class="padded"></div>
+<div class="padded"></div>
+
+</div>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1 center">
+    <h2>Your <strong>EUR 9.90</strong> payment successfully went through and your presentation has been activated.</h2>
+    <%= link_to "View your presentation", roadshow_path(id: @roadshow.id), class: "btn btn-primary" %>
+    <div class="padded"></div>
+    <p>If you want to keep record of this transaction you can generate an invoice which will be saved into your account and that you can download and print.</p>
+
+    <%=simple_form_for @invoice do |i|%>
+      <%=i.hidden_field :id, :value => @roadshow.id.to_i %>
+      <%=i.button :submit, "Generate an invoice for this transaction", class: "btn btn-success"%>
+    <%end%>
+
+  </div>
+</div>
+

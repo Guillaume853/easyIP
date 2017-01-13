@@ -1,6 +1,6 @@
 class RoadshowsController < ApplicationController
 
-  before_action :find_roadshow, only: [:show, :edit, :update, :destroy, :confirmation_creation, :payment_option, :disclaimer]
+  before_action :find_roadshow, only: [:show, :edit, :update, :destroy, :payment_option, :disclaimer]
 
   def index
     if params[:user_id]
@@ -44,7 +44,7 @@ class RoadshowsController < ApplicationController
       @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
     end
     if @roadshow.save
-      redirect_to payment_option_path(id: @roadshow.id)
+      redirect_to payment_option_path(id: @roadshow.id, method: :post)
     else
       render :new
     end
@@ -71,13 +71,6 @@ class RoadshowsController < ApplicationController
       redirect_to roadshows_path(user_id: current_user.id)
     else
       flash[:alert] = "You can't delete this product"
-    end
-  end
-
-  def confirmation_creation
-    @invoices = Invoice.select{|invoice| invoice.roadshow.id == params[:id].to_i}
-    @invoices.each do |invoice|
-      invoice.is_paid = true
     end
   end
 

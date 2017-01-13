@@ -14,9 +14,9 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice = Invoice.new
-    @roadshow = Roadshow.find(params[:id].to_i)
+    @roadshow = Roadshow.find(params[:invoice][:id].to_i)
     @invoice.roadshow = @roadshow
-    @invoice.price = 99.00
+    @invoice.price = 9.90
     @invoice.is_paid = false
 
     if @invoice.save

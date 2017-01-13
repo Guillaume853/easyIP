@@ -6,9 +6,10 @@ class ChargesController < ApplicationController
 
   def create
     @roadshow = Roadshow.find(params[:id].to_i)
+    @invoice = Invoice.new
 
     # Amount in cents
-    @amount = 50
+    @amount = 990
 
 
     customer = Stripe::Customer.create(
