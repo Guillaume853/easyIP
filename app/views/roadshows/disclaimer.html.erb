@@ -42,7 +42,7 @@
       <div class="col-xl-6">
         <%= link_to "No", research_path(company: @roadshow.company), class: "btn btn-danger" %>
 
-        <%= link_to "Yes", roadshow_path(id: @roadshow.id.to_i), class: "btn btn-success" %>
+        <%= link_to "Yes", latestpages_path(roadshow_id: @roadshow.id), method: :post, class: "btn btn-success" %>
       </div>
     </div>
   </div>
