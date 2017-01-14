@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
 
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.select{|invoice| invoice.roadshow.user.id == current_user.id.to_i}
   end
 
   def show

@@ -1,29 +1,36 @@
 <div class="padded"></div>
 <div class="padded"></div>
-<h2 class="center">Invoices for <%= current_user.email %></h2>
-<div class="padded"></div>
-<ul>
-<table style="width:90%; text-align: center">
-    <tr>
-      <td> <strong>Reference</strong> </td>
-      <td> <strong>Company</strong> </td>
-      <td> <strong>Creation Date</strong> </td>
-      <td> <strong>pdf</strong> </td>
-    </tr>
 
-    <% @invoices.each do |invoice| %>
+<% if @invoices %>
+  <h2 class="center">Invoices for <%= current_user.email %></h2>
+  <div class="padded"></div>
+  <ul>
+  <table style="width:90%; text-align: center">
       <tr>
-        <td> <%=invoice.id %>  </td>
-        <td> <%= link_to "#{invoice.roadshow.company}", invoice_path(invoice) %></td>
-        <td> <%=invoice.created_at.strftime("%d %B %Y") %></td>
-        <td>
-          <%= link_to "PDF",
-            invoice_download_path(invoice, format: "download"),
-            target: "_blank"%>
-        </td>
+        <td> <strong>Reference</strong> </td>
+        <td> <strong>Company</strong> </td>
+        <td> <strong>Creation Date</strong> </td>
+        <td> <strong>pdf</strong> </td>
       </tr>
-    <% end %>
-  </ul>
-</table>
 
+      <% @invoices.each do |invoice| %>
+        <tr>
+          <td> <%=invoice.id %>  </td>
+          <td> <%= link_to "#{invoice.roadshow.company}", invoice_path(invoice) %></td>
+          <td> <%=invoice.created_at.strftime("%d %B %Y") %></td>
+          <td>
+            <%= link_to "PDF",
+              invoice_download_path(invoice, format: "download"),
+              target: "_blank"%>
+          </td>
+        </tr>
+      <% end %>
+    </ul>
+  </table>
+
+<% else %>
+
+  <h2> You don't have any invoice</h2>
+
+<% end %>
 <div class="padded"></div>
