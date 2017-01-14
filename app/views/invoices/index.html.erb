@@ -19,9 +19,9 @@
           <td> <%= link_to "#{invoice.roadshow.company}", invoice_path(invoice) %></td>
           <td> <%=invoice.created_at.strftime("%d %B %Y") %></td>
           <td>
-            <%= link_to "PDF",
-              invoice_download_path(invoice, format: "download"),
-              target: "_blank"%>
+            <%= link_to "Download",
+            invoice_download_path(invoice, format: "pdf"),
+            target: "_blank" %>
           </td>
         </tr>
       <% end %>

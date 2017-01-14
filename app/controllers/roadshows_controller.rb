@@ -1,6 +1,6 @@
 class RoadshowsController < ApplicationController
 
-  before_action :find_roadshow, only: [:show, :edit, :update, :destroy, :payment_option, :disclaimer]
+  before_action :find_roadshow, only: [:show, :edit, :update, :destroy, :payment_option, :disclaimer, :confirmation_update]
 
   def index
     if params[:user_id]
@@ -55,12 +55,12 @@ class RoadshowsController < ApplicationController
   end
 
   def update
-    if !params[:roadshow][:presentation].include?
+    if !params[:roadshow][:presentation].include? "path"
       @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
     end
     if (@roadshow.user == current_user) && @roadshow.update(roadshow_params)
         #attention le update ci-dessus est le update de active record, pas la méthode update du controleur
-      redirect_to confirmation_creation_path(id: @roadshow.id)
+      redirect_to confirmation_update_path(id: @roadshow.id)
     else
       render :edit
     end
@@ -87,6 +87,9 @@ class RoadshowsController < ApplicationController
     else
       @roadshows =[]
     end
+  end
+
+  def confirmation_update
   end
 
   private

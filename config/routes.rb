@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :roadshows
 
   get "/research" => "roadshows#research"
-  get "/confirmation_creation" => "roadshows#confirmation_creation"
+  get "/confirmation_update" => "roadshows#confirmation_update"
   get "/payment_option" => "roadshows#payment_option"
   get "/disclaimer" => "roadshows#disclaimer"
 
