@@ -83,7 +83,7 @@ class RoadshowsController < ApplicationController
 
   def research
    if params[:company]
-      @roadshows = Roadshow.select{|roadshow| (roadshow.company.downcase == params[:company].downcase)&&(roadshow.start_date < DateTime.now)&&(roadshow.end_date > DateTime.now)}
+      @roadshows = Roadshow.select{|roadshow| (roadshow.company.downcase.include? params[:company].downcase)&&(roadshow.start_date < DateTime.now)&&(roadshow.end_date > DateTime.now)}
     else
       @roadshows =[]
     end
