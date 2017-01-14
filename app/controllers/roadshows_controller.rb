@@ -40,6 +40,7 @@ class RoadshowsController < ApplicationController
   def create
     @roadshow = Roadshow.new(roadshow_params)
     @roadshow.user = current_user
+    @roadshow.is_paid = false
     if !params[:roadshow][:presentation].include? "path"
       @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
     end

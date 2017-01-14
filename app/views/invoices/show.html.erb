@@ -4,12 +4,14 @@
 <div class="row">
   <div class="col-xm-4 col-sm-4-offset center">
 
+    <%= link_to "All my Invoices", invoices_path, class: "btn btn-success"%>
+
     <%= link_to "Download PDF",
       invoice_download_path(@invoice, format: "pdf"),
       target: "_blank",
       class: "download btn btn-danger " %>
 
-    <%= link_to "Access to Presentation", roadshow_path(id: @roadshow.id), class: "btn btn-primary"%>
+    <%= link_to "Access to Presentation", latestpages_path(roadshow_id: @roadshow.id), method: :post, class: "btn btn-primary"%>
 
   </div>
 </div>

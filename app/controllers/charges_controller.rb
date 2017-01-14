@@ -6,7 +6,10 @@ class ChargesController < ApplicationController
 
   def create
     @roadshow = Roadshow.find(params[:id].to_i)
+    @roadshow.is_paid = true
+    @roadshow.save
     @invoice = Invoice.new
+    @latestpage = Latestpage.new
 
     # Amount in cents
     @amount = 990

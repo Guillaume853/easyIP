@@ -16,12 +16,12 @@ class LatestpagesController < ApplicationController
   def create
     @latestpage = Latestpage.new
     @latestpage.user = current_user
-    @roadshow = Roadshow.find(params[:id].to_i)
+    @roadshow = Roadshow.find(params[:roadshow_id].to_i)
     @latestpage.roadshow = @roadshow
     @latestpage.page = 1
 
     if @latestpage.save
-      redirect_to disclaimer_path(id: @roadshow.id)
+      redirect_to roadshow_path(id: @roadshow.id)
     else
       redirect_to research_path(roadshow: @roadshow)
     end

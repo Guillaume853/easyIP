@@ -1,70 +1,88 @@
 
+<% if @roadshow.is_paid %>
+  <div class="container">
+    <div class="padded">
+    </div>
+    <div class="media">
+      <div class="media-body presentation-image">
+        <div class="presentation-container">
+          <%= render 'presentation' %>
+        </div>
 
-<div class="container">
+        <div class="media-section page-choser">
+
+          <%= link_to previous_page_path(id: @roadshow.id), {class: "arrow arrow-left", remote: true}  do%>
+            <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+          <% end %>
+          <div class="page-choser-number">
+            <%= form_tag({controller: "roadshows", action: "show"}, method: "get", remote: true) do %>
+              <%= text_field_tag :page, "",class:'form-control form-page' %>
+            <% end %>
+            <p id="page-number">  / <%= @number_of_pages %></p>
+          </div>
+          <%= link_to following_page_path(id: @roadshow.id), {class: "arrow arrow-right", remote: true}  do%>
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          <% end %>
+        </div>
+        <% if @roadshow.download %>
+          <div class="media-section download-section">
+            <%= link_to "download in pdf", cloudinary_url(@roadshow.presentation.public_id), target: :_blank, class: "btn btn-success download-button"%>
+          </div>
+        <% end %>
+      </div>
+      <div class="media-aside">
+        <div class="close-button">
+          <%= link_to research_path do%>
+            <i class="fa fa-times fa-lg"></i>
+          <% end %>
+        </div>
+        <div class="media-section">
+          <h1><%= @roadshow.company%></h1>
+          <h5> Last update : <%= @roadshow.updated_at %> </h5>
+          <h6> <%= link_to "Company Website", @roadshow.url %></h6>
+          <% if @roadshow.message %>
+            <p>
+              Roadshow Announcement message:
+            </p>
+            <p>
+              "<i><%= @roadshow.message %> </i>"
+            </p>
+          <% end %>
+        </div>
+        <div class="media-section">
+          <% if @roadshow.start_date_public %>
+            <p> Start Date: <%= @roadshow.end_date %> </p>
+          <% end %>
+          <% if @roadshow.end_date_public %>
+            <p> End Date: <%= @roadshow.start_date %></p>
+          <% end %>
+
+        </div>
+        <% if @roadshow.user == current_user %>
+          <div id="administrator">
+            <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
+            <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
+            <%= link_to "View accesses", latestpages_path(roadshow_id: @roadshow.id), class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% else %>
   <div class="padded">
   </div>
-  <div class="media">
-    <div class="media-body presentation-image">
-      <div class="presentation-container">
-        <%= render 'presentation' %>
-      </div>
+  <div class="padded"></div>
+  <div class="center">
+    <h3>This presentation has not been activated yet.</h3>
+    <div class="padded"></div>
 
-      <div class="media-section page-choser">
-
-        <%= link_to previous_page_path(id: @roadshow.id), {class: "arrow arrow-left", remote: true}  do%>
-          <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-        <% end %>
-        <div class="page-choser-number">
-          <%= form_tag({controller: "roadshows", action: "show"}, method: "get", remote: true) do %>
-            <%= text_field_tag :page, "",class:'form-control form-page' %>
-          <% end %>
-          <p id="page-number">  / <%= @number_of_pages %></p>
-        </div>
-        <%= link_to following_page_path(id: @roadshow.id), {class: "arrow arrow-right", remote: true}  do%>
-          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-        <% end %>
-      </div>
-      <% if @roadshow.download %>
-        <div class="media-section download-section">
-          <%= link_to "download in pdf", cloudinary_url(@roadshow.presentation.public_id), target: :_blank, class: "btn btn-success download-button"%>
-        </div>
-      <% end %>
-    </div>
-    <div class="media-aside">
-      <div class="close-button">
-        <%= link_to research_path do%>
-          <i class="fa fa-times fa-lg"></i>
-        <% end %>
-      </div>
-      <div class="media-section">
-        <h1><%= @roadshow.company%></h1>
-        <h5> Last update : <%= @roadshow.updated_at %> </h5>
-        <h6> <%= link_to "Company Website", @roadshow.url %></h6>
-        <% if @roadshow.message %>
-          <p>
-            Roadshow Announcement message:
-          </p>
-          <p>
-            "<i><%= @roadshow.message %> </i>"
-          </p>
-        <% end %>
-      </div>
-      <div class="media-section">
-        <% if @roadshow.start_date_public %>
-          <p> Start Date: <%= @roadshow.end_date %> </p>
-        <% end %>
-        <% if @roadshow.end_date_public %>
-          <p> End Date: <%= @roadshow.start_date %></p>
-        <% end %>
-
-      </div>
-      <% if @roadshow.user == current_user %>
-        <div id="administrator">
-          <%= link_to "Modify IP", edit_roadshow_path, class: "btn btn-warning" %>
-          <%= link_to "Delete IP", roadshow_path(@roadshow), method: :delete, class: "btn btn-danger" %>
-          <%= link_to "View accesses", latestpages_path(roadshow_id: @roadshow.id), class: "btn btn-success" %>
-        </div>
-      <% end %>
-    </div>
+    <% if @roadshow.user == current_user%>
+      To activate it : <br>
+      <%= link_to "pay us directly with Stripe", new_charge_path(id: @roadshow.id), class: "btn btn-success" %>
+    <% end %>
   </div>
-</div>
+
+<% end %>
+
+
+
