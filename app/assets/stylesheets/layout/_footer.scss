@@ -3,4 +3,10 @@
 #footer{
   background-color: black;
   color: $gray-light;
+  a{
+    color: $gray-light;
+  }
+  a:hover{
+    color: $gray-lighter;
+  }
 }

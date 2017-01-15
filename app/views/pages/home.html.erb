@@ -69,12 +69,12 @@
         <div class="col-xs-12 col-sm-6 col-md-3 center">
           <div class="row">
             <div class="col-xs-2" style="font-size: 50px"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-            <div class="col-xs-10">12 rue du Cardinal Mercier <br> 75009 Paris <br> France</div>
+            <div class="col-xs-10">EasyIP is located in <br> Paris <br> France</div>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 center">Contact : <br> contact@easyip-app.com</div>
+        <div class="col-xs-12 col-sm-6 col-md-3 center">Contact : <br> <%= mail_to "contact@easyip-app.com", "contact@easyip-app.com"%></div>
         <div class="col-xs-12 col-sm-6 col-md-3 center">The content of this website is managed by EasyIP. <br> Our application is hosted by heroku on servers belonging to Amazon Web Services located in Ireland.</div>
-        <div class="col-xs-12 col-sm-6 col-md-3 center">According to French law Nr 78-12 you can access and modify your data by sending an email to: contact@easyip-app.com</div>
+        <div class="col-xs-12 col-sm-6 col-md-3 center">According to French law Nr 78-12 you can access and modify your data by sending an email to <%= mail_to "contact@easyip-app.com", "contact@easyip-app.com"%></div>
       </div>
     </div>
   </div>
