@@ -5,6 +5,7 @@ class ChargesController < ApplicationController
   end
 
   def create
+
     @roadshow = Roadshow.find(params[:id].to_i)
     @roadshow.is_paid = true
     @roadshow.save

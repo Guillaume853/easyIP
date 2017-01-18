@@ -8,11 +8,10 @@
     <h2>Your <strong>EUR 9.90</strong> payment successfully went through and your presentation for <%= @roadshow.company%> has been activated.</h2>
 
     <div class="padded"></div>
-    <p>If you want to keep record of this payment you can generate an invoice which will be saved into your account and that you can download and print.</p>
 
-    <%=simple_form_for @invoice do |i|%>
-      <%=i.hidden_field :id, :value => @roadshow.id.to_i %>
-      <%=i.button :submit, "Generate an invoice for this transaction", class: "btn btn-success"%>
+    <%=simple_form_for @latestpage do |l|%>
+      <%=l.hidden_field :roadshow_id, :value => @roadshow.id.to_i %>
+      <%=l.button :submit, "View the presentation", class: "btn btn-success"%>
     <%end%>
 
   </div>

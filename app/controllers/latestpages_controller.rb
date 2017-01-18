@@ -14,9 +14,14 @@ class LatestpagesController < ApplicationController
   end
 
   def create
+
     @latestpage = Latestpage.new
     @latestpage.user = current_user
-    @roadshow = Roadshow.find(params[:roadshow_id].to_i)
+    if params[:latestpage]
+      @roadshow = Roadshow.find(params[:latestpage][:roadshow_id].to_i)
+    else
+      @roadshow = Roadshow.find(params[:roadshow_id].to_i)
+    end
     @latestpage.roadshow = @roadshow
     @latestpage.page = 1
 
