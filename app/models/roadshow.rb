@@ -1,8 +1,6 @@
 class Roadshow < ApplicationRecord
   has_attachment :presentation
-  has_many :accesss
-  has_many :latestpages
-  has_many :invoices
+  has_many :latestpages, dependent: :delete_all
 
 
   belongs_to :user
