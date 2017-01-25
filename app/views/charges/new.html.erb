@@ -17,14 +17,14 @@
         <% end %>
         <p>You are about to make a payment through Stripe</p>
         <label class="amount">
-          <span>Amount: EUR 9.90</span>
+          <span>Amount: EUR 99.00</span>
         </label>
       </article>
 
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="New IP to EasyIP"
-              data-amount="990"
+              data-amount="9900"
               data-locale="auto"
               data-currency="eur">
       </script>

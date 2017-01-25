@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114121204) do
+ActiveRecord::Schema.define(version: 20170125183047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,10 +45,8 @@ ActiveRecord::Schema.define(version: 20170114121204) do
   create_table "invoices", force: :cascade do |t|
     t.float    "price"
     t.boolean  "is_paid"
-    t.integer  "roadshow_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["roadshow_id"], name: "index_invoices_on_roadshow_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "latestpages", force: :cascade do |t|
@@ -93,13 +91,16 @@ ActiveRecord::Schema.define(version: 20170114121204) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "accesses", "roadshows"
   add_foreign_key "accesses", "users"
-  add_foreign_key "invoices", "roadshows"
   add_foreign_key "latestpages", "roadshows"
   add_foreign_key "latestpages", "users"
   add_foreign_key "roadshows", "users"
