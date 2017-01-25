@@ -92,11 +92,11 @@ Rails.application.configure do
     config.action_mailer.smtp_settings = {
       user_name:      ENV['SENDMAIL_USERNAME'],
       password:       ENV['SENDMAIL_PASSWORD'],
-      domain: 'www.easyip-app.com',
+      domain: 'gmail.com',
       address: 'smtp.gmail.com',
       port: 587,
       authentication: :plain,
       enable_starttls_auto: true
     }
-    config.action_mailer.default_url_options = { :host => 'www.easyip-app.com' }
+    config.action_mailer.default_url_options = { :host => 'easyip-app.com' }
 end
