@@ -2,6 +2,7 @@
   <div class="banner-content">
     <%#= render "shared/flashes" %>
     <h1>EasyIP</h1>
+    <%= image_tag "logo", id:"logo-home"%>
     <p>The cheapest way to securely share Investor Presentations</p>
     <% if user_signed_in? %>
       <%= link_to "Search an IP", research_path, class: "home-button" %>

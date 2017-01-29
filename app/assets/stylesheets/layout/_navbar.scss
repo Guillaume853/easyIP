@@ -28,6 +28,13 @@
 #navbar-wagon-logo {
   flex: 0 1 auto;
   font-size: 30px;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  right: 30px;
+  img {
+    width: 36px;
+  }
 }
 
 #navbar-login {
