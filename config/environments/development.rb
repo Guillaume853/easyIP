@@ -59,7 +59,7 @@ Rails.application.configure do
     domain: 'easyip-app.com',
     address: 'smtp.gmail.com',
     port: 587,
-    authentication: "plain",
+    authentication: :plain,
     enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = { host:'localhost:3000' }
