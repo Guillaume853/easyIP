@@ -27,17 +27,19 @@
 
     </script>
 
+    <%= javascript_include_tag 'application' %>
+
   </head>
   <body>
     <div>
       <%= render "shared/navbar" %>
-      <%= render "shared/message" %>
+      <%= render 'shared/message' %>
       <%= render "pages/login_modal"%>
       <%= render "pages/signup_modal"%>
 
       <%= yield %>
     </div>
-    <%= javascript_include_tag 'application' %>
+
     <%= cloudinary_js_config %>
   </body>
 </html>

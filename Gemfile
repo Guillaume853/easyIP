@@ -26,6 +26,7 @@ gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'render_anywhere'
 gem 'sendgrid-ruby'
+gem 'toastr-rails'
 
 group :development, :test do
   gem 'binding_of_caller'
