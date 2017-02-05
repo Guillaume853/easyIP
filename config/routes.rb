@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
 
   get 'invoices/index'
-
   get 'invoices/show'
-
   get 'invoices/new'
-
   get 'invoices/create'
 
   mount Attachinary::Engine => "/attachinary"

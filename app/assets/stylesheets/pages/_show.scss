@@ -1,13 +1,25 @@
 .media {
   display: flex;
+  height: 100vh;
 }
 .media-body {
   flex: 1 1 auto;
   padding: 20px;
+
+  img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 70vh;
+  }
 }
-.media-body img {
+
+.presentation-container{
   width: 100%;
+  display: flex;
+  justify-content : space-around;
 }
+
 .media-aside {
   position: relative;
   margin-top: 21px;
@@ -20,6 +32,7 @@
 
 .media-section {
   margin: 40px auto;
+  text-align: center ;
 }
 
 .media-section:first-child {
@@ -51,7 +64,6 @@
   font-weight: bold;
   opacity : 0.6;
   font-size: 40px;
-
 }
 
 .arrow:hover {
@@ -83,5 +95,22 @@
   display : flex;
   justify-content : space-between;
   align-items: center;
+}
+
+.screen-icon{
+  position:relative;
+  height: 30px;
+  a{
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+    color: $gray ;
+    opacity: 0.6;
+  }
+  a:hover{
+    opacity : 1;
+    text-decoration : none;
+    color : $gray ;
+  }
 }
 

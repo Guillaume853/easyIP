@@ -13,6 +13,12 @@ class RoadshowsController < ApplicationController
   def show
     @latestpage = Latestpage.where("roadshow_id = ? AND user_id = ?", params[:id].to_i, current_user.id.to_i).last
 
+    if (params[:view]=="fullscreen")
+      @fullscreen = true;
+    else
+      @fullscreen = false;
+    end
+
     if params[:page]
       @page = params[:page].to_i
       @latestpage.page = @page
