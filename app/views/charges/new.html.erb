@@ -1,6 +1,3 @@
-
-
-
 <div class="padded"></div>
 <div class="padded"></div>
 <div class="row">
@@ -9,22 +6,25 @@
 
       <%= hidden_field_tag :id, @roadshow.id.to_i %>
 
-      <article>
-        <% if flash[:error].present? %>
-          <div id="error_explanation">
-            <p><%= flash[:error] %></p>
-          </div>
-        <% end %>
-        <p>You are about to make a payment through Stripe</p>
-        <label class="amount">
-          <span>Amount: EUR 99.00</span>
-        </label>
-      </article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <p>You are about to make a payment through Stripe</p>
+      <label class="amount">
+        <span>Amount: EUR 99.00</span>
+      </label>
+
+      <p>
+        <%= label_tag(:couponCode, 'Coupon:') %>
+        <%= text_field_tag(:couponCode) %>
+      </p>
 
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="New IP to EasyIP"
-              data-amount="9900"
+              data-amount=
               data-locale="auto"
               data-currency="eur">
       </script>
