@@ -4,7 +4,12 @@
       <div class="media-body">
         <div class="padded"></div>
         <div class="screen-icon">
-          <%= link_to roadshow_path(id: @roadshow.id, view: "normal"), {title: 'back to normal view', 'data-toggle'=>'tooltip', 'data-placement'=> 'left'} do %>
+          <% if @roadshow.download %>
+            <%= link_to cloudinary_url(@roadshow.presentation.public_id), {title: 'Download in pdf', 'data-toggle'=>'tooltip', 'data-placement'=> 'left', target: :_blank, class: "pdf-icon"} do%>
+              <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <%= link_to roadshow_path(id: @roadshow.id, view: "normal"), {title: 'back to normal view', 'data-toggle'=>'tooltip', 'data-placement'=> 'left', class: "full-screen"} do %>
             <i class="fa fa-compress" aria-hidden="true"></i>
           <% end %>
         </div>
@@ -12,7 +17,7 @@
           <%= render 'presentation' %>
         </div>
         <div class="media-section page-choser">
-          <%= link_to previous_page_path(id: @roadshow.id), {class: "arrow arrow-left", remote: true}  do%>
+          <%= link_to previous_page_path(id: @roadshow.id, view: "fullscreen"), {class: "arrow arrow-left", remote: true}  do%>
             <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
           <% end %>
           <div class="page-choser-number">
@@ -21,15 +26,10 @@
             <% end %>
             <p id="page-number">  / <%= @number_of_pages %></p>
           </div>
-          <%= link_to following_page_path(id: @roadshow.id), {class: "arrow arrow-right", remote: true}  do%>
+          <%= link_to following_page_path(id: @roadshow.id, view: "fullscreen"), {class: "arrow arrow-right", remote: true}  do%>
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           <% end %>
         </div>
-        <% if @roadshow.download %>
-          <div class="media-section download-section">
-            <%= link_to "download in pdf", cloudinary_url(@roadshow.presentation.public_id), target: :_blank, class: "btn btn-success download-button"%>
-          </div>
-        <% end %>
       </div>
     </div>
   <%else%>
@@ -39,7 +39,12 @@
       <div class="media">
         <div class="media-body">
           <div class="screen-icon">
-            <%= link_to roadshow_path(id: @roadshow.id, view: "fullscreen"), {title: 'View in full screen', 'data-toggle'=>'tooltip', 'data-placement'=> 'left'} do %>
+            <% if @roadshow.download %>
+              <%= link_to cloudinary_url(@roadshow.presentation.public_id), {title: 'Download in pdf', 'data-toggle'=>'tooltip', 'data-placement'=> 'left', target: :_blank, class: "pdf-icon"} do%>
+                <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+            <%= link_to roadshow_path(id: @roadshow.id, view: "fullscreen"), {title: 'View in full screen', 'data-toggle'=>'tooltip', 'data-placement'=> 'left', class: "full-screen" } do %>
               <i class="fa fa-desktop" aria-hidden="true"></i>
             <% end %>
           </div>
@@ -60,11 +65,6 @@
               <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
             <% end %>
           </div>
-          <% if @roadshow.download %>
-            <div class="media-section download-section">
-              <%= link_to "download in pdf", cloudinary_url(@roadshow.presentation.public_id), target: :_blank, class: "btn btn-success download-button"%>
-            </div>
-          <% end %>
         </div>
         <div class="media-aside">
           <div class="close-button">
