@@ -1,0 +1,21 @@
+
+
+<div class="padded"></div>
+<div class="padded"></div>
+
+</div>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1 center">
+
+    <h2>Your payment successfully went through and your presentation for <%= @roadshow.company%> has been activated.</h2>
+
+    <div class="padded"></div>
+
+      <%=simple_form_for @latestpage do |l|%>
+        <%=l.hidden_field :roadshow_id, :value => @roadshow.id.to_i %>
+        <%=l.button :submit, "View the presentation", class: "btn btn-success"%>
+      <%end%>
+
+    </div>
+  </div>
+</div>

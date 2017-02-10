@@ -17,6 +17,10 @@ class ChargesController < ApplicationController
       end
     end
 
+    if (@final_amount == 0)
+      redirect_to totaldiscount_path(id: @roadshow.id)
+    end
+
     respond_to do |format|
       format.html
       format.js
@@ -35,8 +39,6 @@ class ChargesController < ApplicationController
     # Amount in cents
     @final_amount = params[:final_amount].to_i
 
-    code = params[:couponCode]
-
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -51,8 +53,15 @@ class ChargesController < ApplicationController
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to new_charge_path
+      redirect_to new_charge_path(id: @roadshow.id)
     end
+
+  def totaldiscount
+    @roadshow = Roadshow.find(params[:id].to_i)
+    @roadshow.is_paid = true
+    @roadshow.save
+    @latestpage = Latestpage.new
+  end
 
   private
 

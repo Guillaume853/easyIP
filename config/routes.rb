@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :charges
   get "/coupons" => "charges#coupons"
+  get "/totaldiscount" => "charges#totaldiscount"
 
   resources :latestpages, only: [:create, :index]
   get "/following_page" => "latestpages#following_page"
