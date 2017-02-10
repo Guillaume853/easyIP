@@ -2,34 +2,38 @@
 <div class="padded"></div>
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1 center">
+
+    <p>You are about to make a payment through Stripe</p>
+    <label class="amount">
+      <%= render 'amount' %>
+    </label>
+
+    <%= form_tag({controller: "charges", action: "new"}, method: "get", remote: true) do %>
+      <p>
+        <%= label_tag(:couponCode, "Coupon:") %>
+        <%= text_field_tag :couponCode, ""  %>
+        <%= hidden_field_tag(:id, @roadshow.id.to_i) %>
+        <%= submit_tag "update price" %>
+      </p>
+    <% end %>
+
     <%= form_tag charges_path do %>
-
       <%= hidden_field_tag :id, @roadshow.id.to_i %>
-
+      <%= hidden_field_tag :final_amount, @final_amount.to_i %>
       <% if flash[:error].present? %>
         <div id="error_explanation">
           <p><%= flash[:error] %></p>
         </div>
       <% end %>
-      <p>You are about to make a payment through Stripe</p>
-      <label class="amount">
-        <span>Amount: EUR 99.00</span>
-      </label>
-
-      <p>
-        <%= label_tag(:couponCode, 'Coupon:') %>
-        <%= text_field_tag(:couponCode) %>
-      </p>
 
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="New IP to EasyIP"
-              data-amount=
+              data-amount= "<%=@final_amount%>"
               data-locale="auto"
               data-currency="eur">
       </script>
     <% end %>
   </div>
-
 </div>
 

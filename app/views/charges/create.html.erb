@@ -10,11 +10,11 @@
 
     <div class="padded"></div>
 
-    <%=simple_form_for @latestpage do |l|%>
-      <%=l.hidden_field :roadshow_id, :value => @roadshow.id.to_i %>
-      <%=l.button :submit, "View the presentation", class: "btn btn-success"%>
-    <%end%>
+      <%=simple_form_for @latestpage do |l|%>
+        <%=l.hidden_field :roadshow_id, :value => @roadshow.id.to_i %>
+        <%=l.button :submit, "View the presentation", class: "btn btn-success"%>
+      <%end%>
 
+    </div>
   </div>
 </div>
-

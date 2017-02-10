@@ -106,7 +106,7 @@
   position:relative;
   height: 30px;
   a{
-    font-size: 20px;
+    font-size:25px;
     color: $gray ;
     opacity: 0.6;
   }
@@ -118,11 +118,12 @@
 }
 .full-screen{
     position: absolute;
-    right: 0;
+    right: 15px;
+    bottom: 2px;
 }
 .pdf-icon{
     position: absolute;
-    right: 50px;
+    right: 70px;
     bottom: 4px;
 }
 

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :accesss, only: [:create, :index]
 
   resources :charges
+  get "/coupons" => "charges#coupons"
 
   resources :latestpages, only: [:create, :index]
   get "/following_page" => "latestpages#following_page"
