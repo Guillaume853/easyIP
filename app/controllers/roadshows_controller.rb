@@ -11,6 +11,7 @@ class RoadshowsController < ApplicationController
   end
 
   def show
+
     @latestpage = Latestpage.where("roadshow_id = ? AND user_id = ?", params[:id].to_i, current_user.id.to_i).last
 
     if (params[:view]=="fullscreen")
@@ -49,12 +50,17 @@ class RoadshowsController < ApplicationController
     @roadshow.is_paid = false
     if !params[:roadshow][:presentation].include? "path"
       @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
+      find_title_list
+      @roadshow.title_list = @list
+    else
+      @roadshow.number_of_pages = 0
     end
     if @roadshow.save
       redirect_to payment_option_path(id: @roadshow.id, method: :post)
     else
       render :new
     end
+
   end
 
   def edit
@@ -63,6 +69,8 @@ class RoadshowsController < ApplicationController
   def update
     if !params[:roadshow][:presentation].include? "path"
       @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
+      find_title_list
+      @roadshow.title_list= @list
     end
     if (@roadshow.user == current_user) && @roadshow.update(roadshow_params)
         #attention le update ci-dessus est le update de active record, pas la méthode update du controleur
@@ -105,6 +113,17 @@ class RoadshowsController < ApplicationController
 
   def find_roadshow
     @roadshow = Roadshow.find(params[:id].to_i)
+  end
+
+  def find_title_list
+    require 'open-uri'
+    @list=[]
+    url = Cloudinary::Utils.cloudinary_url(@roadshow.presentation.path).to_s
+    io = open(url)
+    reader = PDF::Reader.new(io)
+    reader.pages.each do |p|
+      @list << p. text.split.first(5).join(' ')[0,50]
+    end
   end
 
 end
