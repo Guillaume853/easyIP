@@ -22,13 +22,13 @@
 .presentation-container-full-screen{
   width: 100%;
   display: flex;
-  justify-content : space-around;
+  justify-content: space-around;
 }
 
 .media-aside {
   position: relative;
   margin-top: 21px;
-  flex: 0 0 300px;
+  flex: 0 0 400px;
   padding: 30px;
   align-self: stretch;
   background: #F8F7F7;
@@ -116,14 +116,46 @@
     color : $gray ;
   }
 }
+
 .full-screen{
     position: absolute;
     right: 15px;
     bottom: 2px;
 }
+
 .pdf-icon{
     position: absolute;
     right: 70px;
     bottom: 4px;
 }
+
+.scrollbar{
+  padding: 20px;
+  width: 15vw;
+  min-width: 220px;
+  height: 40vh;
+  min-height:200px;
+  overflow:auto;
+  font-size: 12px;
+  .menu-scrollbar{
+    font-size: 16px;
+    text-align: center;
+  }
+  a{
+    color: $gray;
+  }
+  a:hover{
+    color: $red;
+    background-color: $gray-light;
+  }
+}
+#full-screen{
+  height: 70vh;
+}
+
+.presentation-container-including-scrollbar{
+  display: flex;
+  justify-content : space-around;
+}
+
 

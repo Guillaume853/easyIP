@@ -1,0 +1,5 @@
+<% @roadshow.title_list.each_with_index do |title, index| %>
+  <%= link_to roadshow_path(page: index+1, id: @roadshow.id), {remote: true} do%>
+    <p> <strong>page <%= index +1 %> :</strong> <%= title %></p>
+  <% end %>
+<% end %>

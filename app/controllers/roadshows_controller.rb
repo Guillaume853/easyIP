@@ -69,8 +69,7 @@ class RoadshowsController < ApplicationController
   def update
     if !params[:roadshow][:presentation].include? "path"
       @roadshow.number_of_pages = params[:roadshow][:presentation].split(',')[10].partition(':').last.to_i;
-      find_title_list
-      @roadshow.title_list= @list
+
     end
     if (@roadshow.user == current_user) && @roadshow.update(roadshow_params)
         #attention le update ci-dessus est le update de active record, pas la méthode update du controleur
@@ -78,6 +77,9 @@ class RoadshowsController < ApplicationController
     else
       render :edit
     end
+      find_title_list
+      @roadshow.title_list= @list
+      @roadshow.save
   end
 
   def destroy

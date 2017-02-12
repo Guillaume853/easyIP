@@ -14,8 +14,13 @@
             <i class="fa fa-compress" aria-hidden="true"></i>
           <% end %>
         </div>
-        <div class="presentation-container-full-screen">
-          <%= render 'presentation' %>
+        <div class="presentation-container-including-scrollbar">
+          <div class="presentation-container-full-screen">
+            <%= render 'presentation' %>
+          </div>
+          <div class="scrollbar" id="full-screen">
+            <%= render 'scrollbar' %>
+          </div>
         </div>
         <div class="media-section page-choser">
           <%= link_to previous_page_path(id: @roadshow.id, view: "fullscreen"), {class: "arrow arrow-left", remote: true}  do%>
@@ -49,16 +54,13 @@
               <i class="fa fa-desktop" aria-hidden="true"></i>
             <% end %>
           </div>
-          <div class="presentation-container">
-            <%= render 'presentation' %>
-          </div>
-          <div style="width:300px; height:200px; overflow:auto; font-size: 12px">
-            <% @roadshow.title_list.each_with_index do |title, index| %>
-              <%= form_tag({controller: "roadshows", action: "show"}, method: "get", remote: true) do %>
-                <%= hidden_field_tag :page, (index+1)%>
-                <%= submit_tag title %>
-              <% end %>
-            <% end %>
+          <div class="presentation-container-including-scrollbar">
+            <div class="presentation-container">
+              <%= render 'presentation' %>
+            </div>
+            <div class="scrollbar">
+              <%= render 'scrollbar' %>
+            </div>
           </div>
           <div class="media-section page-choser">
             <%= link_to previous_page_path(id: @roadshow.id), {class: "arrow arrow-left", remote: true}  do%>
