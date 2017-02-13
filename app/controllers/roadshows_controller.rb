@@ -11,7 +11,6 @@ class RoadshowsController < ApplicationController
   end
 
   def show
-
     @latestpage = Latestpage.where("roadshow_id = ? AND user_id = ?", params[:id].to_i, current_user.id.to_i).last
 
     if (params[:view]=="fullscreen")
@@ -98,8 +97,8 @@ class RoadshowsController < ApplicationController
   end
 
   def research
-   if params[:company]
-      @roadshows = Roadshow.select{|roadshow| (roadshow.company.downcase.include? params[:company].downcase)&&(roadshow.start_date < DateTime.now)&&(roadshow.end_date > DateTime.now)}
+   if params[:reference]
+      @roadshows = Roadshow.select{|roadshow| (((roadshow.company.downcase.include? params[:reference].downcase)&&(roadshow.reference_code.blank?))||(roadshow.reference_code == params[:reference]))&&(roadshow.start_date < DateTime.now)&&(roadshow.end_date > DateTime.now)}
     else
       @roadshows =[]
     end
@@ -110,7 +109,7 @@ class RoadshowsController < ApplicationController
 
   private
   def roadshow_params
-    params.require(:roadshow).permit(:company, :url, :message, :start_date, :end_date, :start_date_public, :end_date_public, :presentation, :download, :print, :watermark)
+    params.require(:roadshow).permit(:company, :url, :message, :start_date, :end_date, :start_date_public, :end_date_public, :presentation, :download, :print, :watermark, :reference_code)
   end
 
   def find_roadshow

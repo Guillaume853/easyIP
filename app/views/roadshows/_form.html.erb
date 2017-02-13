@@ -13,6 +13,9 @@
   <p><strong>Confidentiality choices for the presentation :</strong></p>
   <%= f.input :download, label: "Allow presentation to be downloaded ?" %>
   <%= f.input :watermark, label: "Add watermark ?" %>
+
+  <p>If you want the presentation to be accessible in the research bar only through a reference code, please specify one:</p>
+  <%= f.input :reference_code, placeholder: "Reference Code" %>
   <%= f.button :submit, "Submit", class: "btn btn-primary" %>
 <% end %>
 <div class="padded"></div>
